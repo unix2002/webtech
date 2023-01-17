@@ -39,3 +39,29 @@ button:hover {
 .l_col, .r_col{
     flex-basis: 85%;
 }
+
+.reminder {
+    color: white;
+    padding: 12px;
+    box-sizing: border-box;
+    background:rgba(102, 205, 170, 0.8);
+    border-radius: 16px;
+    width: 355px;
+    position: fixed;
+    margin-left: 158vh;
+}
+
+.close_reminder {
+    color: white;
+    font-weight: bold;
+    margin-left: 12px;
+    float: right;
+    font-size: 18px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.close_reminder:hover {
+    color: black;
+}
