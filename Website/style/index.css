@@ -1,0 +1,41 @@
+h1 {
+    font-size: 80px;
+    color: white;
+}
+
+p {
+    font-size: 14px;
+    color: white;
+    line-height: 12px;
+}
+
+button {
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: black;
+    background: white;
+    width: 160px;
+    padding: 8px 0;
+    margin-top: 28px;
+    border-radius: 16px;
+    border: 0;
+    outline: none;
+}
+
+button:hover {
+    background-color: mediumaquamarine;
+    color: black;
+    border-radius: 20px;
+    padding: 8px;
+}
+
+.row {
+    align-items: center;
+    height: 75%;
+    display: flex;
+}
+
+.l_col, .r_col{
+    flex-basis: 85%;
+}
