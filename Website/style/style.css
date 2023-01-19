@@ -4,13 +4,9 @@
     font-family: 'sans-serif', Courier New, Courier;
 }
 
-video {
-    right: 0;
-    bottom: 50;
-    min-width: 100%;
-    min-height: 100%;
-    position: fixed;
-    z-index: 0;
+body {
+    background-image: url(/img/galician-waterfall-4k-xy.jpg);
+    background-repeat: no-repeat;
 }
 
 .cont {
@@ -27,8 +23,10 @@ video {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
     min-height: 100%;
     min-width: 100%;
+    overflow: scroll;
 }
 
+/*NAVIGATION BAR*/
 .brand {
     width: 4%;
     cursor: pointer;
@@ -65,4 +63,81 @@ nav ul li a:hover {
     color: black;
     border-radius: 20px;
     padding: 8px;
+}
+
+/*HOMEPAGE*/
+h1 {
+    font-size: 100px;
+    color: white;
+}
+
+p {
+    margin-top: 8px;
+    font-size: 18px;
+    color: white;
+    line-height: 12px;
+}
+
+button {
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: black;
+    background: white;
+    width: 160px;
+    padding: 8px 0;
+    margin-top: 22px;
+    border-radius: 16px;
+    border: 0;
+    outline: none;
+}
+
+button:hover {
+    background-color: mediumaquamarine;
+    color: black;
+    border-radius: 20px;
+    padding: 8px;
+}
+
+.row {
+    align-items: center;
+    height: 75%;
+    display: flex;
+}
+
+.l_col, .r_col{
+    flex-basis: 85%;
+}
+
+.reminder {
+    padding: 12px;
+    box-sizing: border-box;
+    background:rgba(102, 205, 170, 0.8);
+    border-radius: 16px;
+    width: 355px;
+    position: fixed;
+    margin-left: 157vh;
+    bottom: 10px;
+}
+
+.close_reminder {
+    color: white;
+    font-weight: bold;
+    margin-left: 12px;
+    float: right;
+    font-size: 18px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.close_reminder:hover {
+    color: mediumaquamarine;
+}
+
+/*ABOUT*/
+h2 {
+    font-size: 100px;
+    color: white;
+    text-align: center;
 }
