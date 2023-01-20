@@ -50,6 +50,8 @@ nav ul li a {
     background-color: grey;
 }
 
+/*HOMEPAGE*/
+
 .content {
     max-width: 650px;
     margin-top: 12%;
@@ -66,17 +68,43 @@ nav ul li a {
     font-size: 16px;
 }
 
-.text {
-    color: white;
-    background-color: rgba(117, 117, 117, 0.555);
-    text-align: center;
-    margin-right: 300px auto;
-    margin-left: 300px auto;
+/*ABOUT US*/
+
+.about_us h1 {
+    margin-top: 4%;
+    color: black;
+    font-size: 60px;
+    margin-bottom: 10px;
 }
 
-.Aboutitem  {
-    display: grid;
-    color: white;
-    margin: auto;
-    width: 50%;
+.row {
+    margin: 0 -5px;
+}
+
+.row::after {
+    display: table;
+    clear: both;
+    content: "";
+}
+
+.card {
+    transition: 0.4s;
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 25%;
+    float: left;
+    padding: 0 8px;
+}
+
+.card:hover {
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.2);
+}
+
+.person {
+    padding: 2px 18px;
+    text-align: center;
+    margin: 8px;
+}
+
+.card img {
+    margin-left: 25%;
 }
