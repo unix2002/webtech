@@ -1,150 +1,112 @@
 * {
-    padding: 0;
     margin: 0;
-    font-family: 'sans-serif', Courier New, Courier;
-}
-
-body {
-    background-image: url(/img/galician-waterfall-4k-xy.jpg);
-    background-repeat: no-repeat;
-}
-
-.cont {
-    color: white;
-    top: 0;
-    width: 100%;
-    position: fixed;
-    padding: 12px;
-    height: 80vh;
-    width: 100%;
-    padding-left: 2%;
-    padding-right: 2%;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-    min-height: 100%;
-    min-width: 100%;
-    overflow: scroll;
 }
 
-/*NAVIGATION BAR*/
-.bar {
+.container {
     overflow: hidden;
+    padding: 12px 8%;
 }
 
-.bar a {
-    float: left;
-    text-align: center;
-    color: white;
-    padding: 16px 18px;
+img {
+    width: 50px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+}
+
+nav ul li {
+    margin: 8px 12px;
+    list-style: none;
+    display: inline-block;
+}
+
+nav ul li a {
+    color: black;
+    font-weight: 200;
     text-decoration: none;
     font-size: 18px;
 }
 
-.bar a:hover {
-    color: #8A9A5B;
-    background-color: white;
+.button {
+    color: black;
+    padding: 12px 44px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 25px;
+    border-top-right-radius: 0;
+    background-color: #8a9a5b;
+    transition: 0.2s;
 }
 
-.bar a.left {
-    color: white;
-    opacity: 85%;
-    border-radius: px;
-}
-
-.bar a.left:hover {
-    color: white;
-    background-color: #8A9A5B;
-    border-radius: 18px;
-}
-
-.bar a.split {
-    color: #8A9A5B;
-    background-color: white;
-    float: right;
-    border-radius: 18px;
-    opacity: 80%;
-}
-
-.bar a.split:hover {
-    color: white;
-    background-color: #8A9A5B;
+.button:hover {
+    background-color: grey;
 }
 
 /*HOMEPAGE*/
-h1 {
-    font-size: 100px;
-    color: white;
+
+.content {
+    max-width: 650px;
+    margin-top: 12%;
 }
 
-p {
-    margin-top: 8px;
-    font-size: 18px;
-    color: white;
-    line-height: 12px;
-}
-
-button {
-    font-size: 13px;
-    text-transform: uppercase;
-    font-weight: bold;
+.content h1 {
     color: black;
-    background: white;
-    width: 160px;
-    padding: 8px 0;
-    margin-top: 22px;
-    border-radius: 16px;
-    border: 0;
-    outline: none;
+    font-size: 60px;
 }
 
-button:hover {
-    background-color: mediumaquamarine;
+.content p {
     color: black;
-    border-radius: 20px;
-    padding: 8px;
+    margin: 12px 0 20px;
+    font-size: 16px;
+}
+
+/*ABOUT US*/
+
+.about_us h1 {
+    margin-top: 4%;
+    color: black;
+    font-size: 60px;
+    margin-bottom: 10px;
 }
 
 .row {
-    align-items: center;
-    height: 75%;
-    display: flex;
+    margin: 0 -5px;
 }
 
-.l_col, .r_col{
-    flex-basis: 85%;
+.row::after {
+    display: table;
+    clear: both;
+    content: "";
 }
 
-.reminder {
-    padding: 12px;
-    box-sizing: border-box;
-    background:rgba(102, 205, 170, 0.8);
-    border-radius: 16px;
-    width: 355px;
-    position: fixed;
-    margin-left: 157vh;
-    bottom: 10px;
-}
-
-.close_reminder {
-    color: white;
-    font-weight: bold;
-    margin-left: 12px;
-    float: right;
-    font-size: 18px;
-    line-height: 20px;
-    cursor: pointer;
+.card {
     transition: 0.4s;
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 25%;
+    float: left;
+    padding: 0 8px;
 }
 
-.close_reminder:hover {
-    color: mediumaquamarine;
+.card:hover {
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.2);
 }
 
-/*ABOUT*/
-h2 {
-    font-size: 80px;
-    color: white;
+.person {
+    padding: 2px 18px;
     text-align: center;
+    margin: 8px;
+}
+
+.card img {
+    margin-left: 25%;
 }
 
 .text {
