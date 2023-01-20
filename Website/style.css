@@ -1,0 +1,148 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'sans-serif', Courier New, Courier;
+}
+
+body {
+    background-image: url(/img/galician-waterfall-4k-xy.jpg);
+    background-repeat: no-repeat;
+}
+
+.cont {
+    color: white;
+    top: 0;
+    width: 100%;
+    position: fixed;
+    padding: 12px;
+    height: 80vh;
+    width: 100%;
+    padding-left: 2%;
+    padding-right: 2%;
+    box-sizing: border-box;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    min-height: 100%;
+    min-width: 100%;
+    overflow: scroll;
+}
+
+/*NAVIGATION BAR*/
+.bar {
+    overflow: hidden;
+}
+
+.bar a {
+    float: left;
+    text-align: center;
+    color: white;
+    padding: 16px 18px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.bar a:hover {
+    color: #8A9A5B;
+    background-color: white;
+}
+
+.bar a.left {
+    color: white;
+    opacity: 85%;
+    border-radius: px;
+}
+
+.bar a.left:hover {
+    color: white;
+    background-color: #8A9A5B;
+    border-radius: 18px;
+}
+
+.bar a.split {
+    color: #8A9A5B;
+    background-color: white;
+    float: right;
+    border-radius: 18px;
+    opacity: 80%;
+}
+
+.bar a.split:hover {
+    color: white;
+    background-color: #8A9A5B;
+}
+
+/*HOMEPAGE*/
+h1 {
+    font-size: 100px;
+    color: white;
+}
+
+p {
+    margin-top: 8px;
+    font-size: 18px;
+    color: white;
+    line-height: 12px;
+}
+
+button {
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: black;
+    background: white;
+    width: 160px;
+    padding: 8px 0;
+    margin-top: 22px;
+    border-radius: 16px;
+    border: 0;
+    outline: none;
+}
+
+button:hover {
+    background-color: mediumaquamarine;
+    color: black;
+    border-radius: 20px;
+    padding: 8px;
+}
+
+.row {
+    align-items: center;
+    height: 75%;
+    display: flex;
+}
+
+.l_col, .r_col{
+    flex-basis: 85%;
+}
+
+.reminder {
+    padding: 12px;
+    box-sizing: border-box;
+    background:rgba(102, 205, 170, 0.8);
+    border-radius: 16px;
+    width: 355px;
+    position: fixed;
+    margin-left: 157vh;
+    bottom: 10px;
+}
+
+.close_reminder {
+    color: white;
+    font-weight: bold;
+    margin-left: 12px;
+    float: right;
+    font-size: 18px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.close_reminder:hover {
+    color: mediumaquamarine;
+}
+
+/*ABOUT*/
+h2 {
+    font-size: 80px;
+    color: white;
+    text-align: center;
+}
