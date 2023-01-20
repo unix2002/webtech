@@ -6,6 +6,7 @@ function difference(average, current)
 function percent(average, current)
 {
     var percentage;
+    percentage = (current / average) * 100;
     return percentage;
 }
 
@@ -13,6 +14,7 @@ function scale_img(percentage)
 {
     // doe dit
     console.log("scaling...");
+    // css transition met percentage als hoeveelheid
 }
 // start
 
@@ -25,6 +27,8 @@ console.log(string);
 const params = new URLSearchParams(string);
 const sum = params.get('sum');
 console.log(sum);
+
+
 
 let average = 80;
 let current = sum;

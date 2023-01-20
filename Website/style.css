@@ -65,3 +65,18 @@ nav ul li a {
     margin: 12px 0 20px;
     font-size: 16px;
 }
+
+.text {
+    color: white;
+    background-color: rgba(117, 117, 117, 0.555);
+    text-align: center;
+    margin-right: 300px auto;
+    margin-left: 300px auto;
+}
+
+.Aboutitem  {
+    display: grid;
+    color: white;
+    margin: auto;
+    width: 50%;
+}
