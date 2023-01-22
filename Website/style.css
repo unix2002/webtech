@@ -187,3 +187,27 @@ nav ul li a {
 .quiz_button:hover {
     background-color: grey;
 }
+
+/*RESULT PAGE*/
+
+.result_text{
+    color: black;
+    position: fixed; top: 50%; left: 25%;
+    margin: auto;
+    text-align: center;
+    width: 50%;
+    border: 5px dotted black;
+}
+
+.result_img_average{
+    position: fixed; left: 40%;
+    width: 300px;
+    height: 300px;
+}
+
+.result_img_user{
+    /* background-color: yellow; */
+    position: fixed; left: 40%;
+    width: 300px;
+    height: 300px;
+}
