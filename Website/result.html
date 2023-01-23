@@ -38,8 +38,18 @@
             <div class="result_text">
                 Your footprint is:<br><span id="footprint"></span> m3
                 <script>
-                    let value = 50000;
-                    document.getElementById("footprint").innerHTML = value;
+                    try {
+                        var url_str = 'https://webtech-in16.webtech-uva.nl/?sum=50';
+                        var string = new URL(url_str).searchParams;
+
+                        const params = new URLSearchParams(string);
+                        const sum = params.get('sum');
+                        document.getElementById("footprint").innerHTML = sum;
+                    }
+                    finally{
+                        let value = 50000;
+                        document.getElementById("footprint").innerHTML = value;
+                    }
                 </script>
             </div>
 
