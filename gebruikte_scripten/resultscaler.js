@@ -35,8 +35,6 @@ const params = new URLSearchParams(string);
 const sum = params.get('sum');
 console.log(sum);
 
-
-
 let average = 80;
 let current = sum;
 
