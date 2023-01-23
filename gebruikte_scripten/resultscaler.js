@@ -12,7 +12,8 @@ function percent(average, current)
 
 function animation_player()
 {
-    alert("button pressed");
+    // alert("button pressed");
+
     var targetElem = document.getElementById("target").children[0];
     targetElem.className = "animate";
 }
