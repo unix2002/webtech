@@ -5,6 +5,18 @@
 		<?php include './api/api_request.php'; ?>
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 		<script>
+		var originalHeight = "140px";
+		var originalWidth = "160px";
+			function resetFoot() {
+				foot.style.height = originalHeight;
+				foot.style.width = originalWidth;
+			}
+			function growFoot(sizeMultiplier) {
+				var foot = document.getElementById("foot");
+				foot.style.height = sizeMultiplier * foot.offsetHeight + "px";
+				foot.style.width = sizeMultiplier * foot.offsetWidth + "px";
+			}
+
 			$(document).ready(function() {
     				$("#form").submit(function(event) {
         				event.preventDefault(); // prevent the form from submitting
@@ -15,13 +27,19 @@
             					success: function(data) {
                 					// do something with the returned data
                 					$("#result").html(data);
+							resetFoot();
+							growFoot(data);
             					}
         				});
     				});
 			});
+
 		</script>
 	</head>
 	<body>
+
+
+
 
     <div class="container">
         <nav>
@@ -34,7 +52,9 @@
             </ul>
             <a class="button" href="login.html">Login Here</a>
         </nav>
-        <div class="content">
+        
+
+	<div align="left" class="content">
             <h1>Leaderboard</h1>
 	    <p>What country average do you want to compare your score with?</p>
 		<form id="form" action="https://webtech-in16.webtech-uva.nl/leaderboard.html" method="post">
@@ -72,8 +92,7 @@
 			<option value="Chile">Chile</option>
 			<option value="Colombia">Colombia</option>
 			<option value="Comoros">Comoros</option>
-			<option value="Congo">Congo</option>
-			<option value="Cook Islands">Cook Islands</option>
+			<option value="Congo">Congo</option> <option value="Cook Islands">Cook Islands</option>
 			<option value="Costa Rica">Costa Rica</option>
 			<option value="Cuba">Cuba</option>
 			<option value="Cyprus">Cyprus</option>
@@ -236,8 +255,18 @@
 		<br><br>
 		<input class="button" type="submit" value="Submit">
 		</form>
+		
+		<div class="content">
+			<h2>Results</h2>
+			<a id="result"></a> average global hectare per person.
+			<p> A global hecare is the planetary average amount of co2 being absorbed per hectare of land.</p>
 		</div>
-		<div id="result"></div>
+
+		</div>
+		
+		<div align="center">
+			<img class="foot" id="foot" src="./img/footprint.png"></img>
+		</div>
 	</body>
 
 </html>

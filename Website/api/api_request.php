@@ -38,6 +38,6 @@ if ($err) {
   echo "Error: " . $err;
 } else {
   $data = json_decode($response);
-  print_r($data[0]->carbon);
+  print_r(number_format($data[0]->carbon, 2));
 }
 ?>
