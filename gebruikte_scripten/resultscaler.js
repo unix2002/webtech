@@ -10,12 +10,6 @@ function percent(average, current)
     return percentage;
 }
 
-function scale_img(percentage)
-{
-    // doe dit
-    console.log("scaling...");
-    // css transition met percentage als hoeveelheid
-}
 // start
 
 // var url_str = window.location;
@@ -39,4 +33,9 @@ console.log(a);
 let percentage = percent(average, current);
 scale_img(percentage);
 
+// https://linuxhint.com/change-css-variables-javascript/
+
+var store = document.querySelector(':root');
+
+store.setAttribute('--end_size', '600px');
 // end

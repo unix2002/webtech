@@ -190,6 +190,11 @@ nav ul li a {
 
 /*RESULT PAGE*/
 
+:root{
+    --size: 300px;
+    --end_size: 300px;
+}
+
 .result_text{
     color: black;
     position: fixed; top: 50%; left: 25%;
@@ -217,18 +222,12 @@ nav ul li a {
 
 @keyframes resize{
     from {
-        width: 300px;
-        height: 300px;
+        width: var(--size);
+        height: var(--size);
     }
     to {
-        width: 600px;
-        height: 600px;
+        width: var(--end_size);
+        height: var(--end_size);
         position: fixed; left: 35%; top: 24%;
     }
-}
-
-.anim{
-    background-color: black;
-    animation-name: resize;
-    animation-duration: 4s;
 }
