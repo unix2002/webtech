@@ -6,7 +6,15 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
 
-    <script src="resultscaler.js"></script>
+    <!-- <script src="/gebruikte_scripten/resultscaler.js"></script> -->
+    <script>
+        function animation_player()
+        {
+        alert("button pressed");
+        var targetElem = document.getElementById("target").children[0];
+        targetElem.className = "animate";
+        }
+    </script>
 </head>
 
 <body>
@@ -27,8 +35,12 @@
                 this is the result
             </div>
             <img class="result_img_average" src="/img/resultprint.png">
-            
-            <img class="result_img_user" src="/img/resultprint.png">
+            <div id="target">
+                <img class="result_img_user" src="/img/resultprint.png">
+            </div>
+
+            <p id="demo"></p>
+            <button onclick="animation_player()">Click me</button>
         </div>
     </div>
 </body>

@@ -192,7 +192,7 @@ nav ul li a {
 
 :root{
     --size: 300px;
-    --end_size: 300px;
+    --end_size: 600px;
 }
 
 .result_text{
@@ -215,6 +215,9 @@ nav ul li a {
     position: fixed; left: 40%; top: 36%;
     width: 300px;
     height: 300px;
+}
+
+.animate{
     animation-name: resize;
     animation-duration: 4s;
     animation-fill-mode: forwards;

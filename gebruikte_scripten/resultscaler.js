@@ -10,6 +10,18 @@ function percent(average, current)
     return percentage;
 }
 
+function animation_player()
+{
+    alert("button pressed");
+    var targetElem = document.getElementById("target").children[0];
+    targetElem.className = "animate";
+}
+
+function alert()
+{
+    alert("buttons");
+}
+
 // start
 
 // var url_str = window.location;
