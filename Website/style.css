@@ -209,7 +209,7 @@ nav ul li a {
 
 .result_text{
     color: black;
-    background-color: #8a9a5b;
+    /* background-color: #8a9a5b; */
     position: fixed; top: 50%; left: 25%;
     margin: auto;
     text-align: center;
