@@ -48,12 +48,11 @@
             <div class="Q3">
                 <h3>What is your fuel usage per week?</h3>
                 <ul class="options3">
-                    <li>1 litre - 10 litres</li>
-                    <li>10 litres - 20 litres</li>
-                    <li>20 litres - 30 litres</li>
-                    <li>30 litres - 40 litres</li>
-                    <li>40 litres - 50 litres</li>
-                    <li>50 litres or higher</li>
+                    <button class="quiz_button" onclick="add_to_sum(10)">1 - 10 litre</button>
+                    <button class="quiz_button" onclick="add_to_sum(20)">10 - 20 litre</button>
+                    <button class="quiz_button" onclick="add_to_sum(30)">20 - 30 litre</button>
+                    <button class="quiz_button" onclick="add_to_sum(40)">40 - 50 litre</button>
+                    <button class="quiz_button" onclick="add_to_sum(50)">50+ litre</button>
                     <li>I don't have a car</li>
                     <li>I only travel by public transport</li>
                 </ul>
@@ -91,22 +90,22 @@
             <div class="Q7">
                 <h3>What is your gas usage per year?</h3>
                 <ul class="options7">
-                    <li>Up to 900 m3</li>
-                    <li>900 m3 - 1500 m3</li>
-                    <li>1500 m3 - 2000 m3</li>
-                    <li>More than 2000 m3</li>
+                    <button class="quiz_button" onclick="add_to_sum(900 * 1,78)">Up to 900m3</button>
+                    <button class="quiz_button" onclick="add_to_sum(1500 * 1,78)">900 m3 - 1500 m3</button>
+                    <button class="quiz_button" onclick="add_to_sum(2000 * 1,78)">1500 m3 - 2000 m3</button>
+                    <button class="quiz_button" onclick="add_to_sum(2500 * 1,78)">More than 2000 m3</button>
                     <li>I don't know</li>
                 </ul>
             </div>
             <div class="Q8">
                 <h3>What is your electricity usage per year?</h3>
                 <ul class="options8">
-                    <li>Up to 2000 kWh</li>
-                    <li>2000 kWh - 2500 kWh</li>
-                    <li>2500 kWh - 3000 kWh</li>
-                    <li>3000 kWh - 3500 kWh</li>
-                    <li>3500 kWh - 4000 kWh</li>
-                    <li>4000 kWh or more</li>
+                    <button class="quiz_button" onclick="add_to_sum(2000 * 0,37)">Up to 2000 kWh</button>
+                    <button class="quiz_button" onclick="add_to_sum(2500 * 0,37)">2000 - 2500 kWh</button>
+                    <button class="quiz_button" onclick="add_to_sum(3000 * 0,37)">2500 - 3000 kWh</button>
+                    <button class="quiz_button" onclick="add_to_sum(3500 * 0,37)">3000 - 3500 kWh</button>
+                    <button class="quiz_button" onclick="add_to_sum(4000 * 0,37)">3500 - 4000 kWh</button>
+                    <button class="quiz_button" onclick="add_to_sum(4500 * 0,37)">4000 kWh or more</button>
                     <li>I don't know</li>
                 </ul>
             </div>
