@@ -8,6 +8,11 @@ function som_shoppinglist(shoppinglist)
     console.log("list = " + shoppinglist);
 }
 
+function add_to_sum(value)
+{
+    
+}
+
 // start
 
 var shoppinglist = new Array(10);
