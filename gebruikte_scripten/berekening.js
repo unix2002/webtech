@@ -24,6 +24,7 @@ function add_to_sum(value)
 
 (function start_sum()
 {
+    alert("startsum called");
     var current_url = window.location.href;
     current_url.searchParams.append('sum', 0);
 })()
