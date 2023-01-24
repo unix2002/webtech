@@ -10,7 +10,14 @@ function som_shoppinglist(shoppinglist)
 
 function add_to_sum(value)
 {
-    
+    var querystring = window.location.search;
+    var parameters = new URLSearchParams(querystring);
+    var current_sum = parameters.get('sum');
+
+    new_sum = current_sum + value;
+    var current_url = window.location.href;
+    current_url.searchParams.delete('sum');
+    current_url.searchParams.append('sum', new_sum);
 }
 
 // start
