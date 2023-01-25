@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* background-color: white; */
+}
+
+body {
+    background-color: #24252A;
+    --color_primary: white;
+    --color_secondary: rgb(236, 236, 236);
+    --button_color: rgb(46, 46, 46);
+    --button_hover: rgb(58, 58, 58);
+
+}
+
+li, a {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+    background-color: rgb(17, 17, 17);
+}
+
+header {
+    /* width: 400px;
+    max-width: 400px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: nowrap; */
+    margin: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 1100px;
+    max-width: 90%;
+
+    padding: 15px 5%;
+    background-color: rgb(17, 17, 17);
+    border-radius: 20px;
+}
+
+.navig {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(17, 17, 17);
+}
+
+.navi {
+    background-color: rgb(17, 17, 17);
+    list-style: none;
+    margin: auto;
+}
+
+.navi li {
+    display: inline-block;
+    padding: 0px 5px;
+}
+
+.navi li a {
+    background-color: rgb(17, 17, 17);
+    transition: all 0.3s ease 0s;
+}
+
+.navi li a:hover {
+    color: #0088a9;
+}
+
+.home {
+    margin-left: 10px;
+    background-color: rgb(17, 17, 17);
+    transition: all 0.3s ease 0s;
+    padding: 4px;
+    border: 2px solid white;
+    border-radius: 90px;
+
+}
+
+.home:hover {
+    border: 2px solid #0088a9;
+    border-radius: 90px;
+}
+
+.login, .signup {
+    width: 400px;
+    max-width: 400px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: nowrap;
+    /* box-shadow: 0 0 40px rgba(36, 37, 42, 0.315); */
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.281);
+    background-color: var(--color_primary);
+    border-radius: 15px;
+}
+
+.login p, .signup p {
+    background-color: var(--color_primary);
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.login a, .signup a {
+    font-size: 12px;
+    color: black;
+    background-color:var(--color_primary);
+    text-align: center;
+}
+
+.login a:hover , .signup a:hover {
+    color: rgb(48, 48, 48);
+}
+
+.login h1, .signup h1{
+    display: flex;
+    justify-content: center;
+    background-color: var(--color_primary);
+    margin-bottom: 10px;
+}
+
+.container {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.container button {
+    background-color: var(--button_color);
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 1px solid #dddddd;
+    outline: none;
+    color: white;
+    cursor: pointer;
+}
+
+.container button:active {
+    transform: scale(0.98);
+}
+
+.container button:hover {
+    background-color: var(--button_hover);
+}
+
+.input {
+    background-color: var(--color_secondary);
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 1px solid #dddddd;
+    outline: none;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.err_message {
+    color:rgb(167, 0, 0);
+}
+
+.redir {
+    color: green;
+}
+
+.hidden {
+    display: none;
+}
+
+
+
+/* .hidden {
+    display: none;
+}
+
+.navi {
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    display: flex;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(31, 29, 29);
+}
+
+li {
+    float: right;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #04AA6D;
+} */
+
+/* profile page */
+div.avatar {
+    float: left;
+    /* display: inline-block; */
+    width: 30%;
+}
+
+img.avatar {
+    display: block;
+    width: 150px;
+    /* height: 0px; */
+
+}
+.container_pr {
+    /* display: flex; */
+    flex-direction: column;
+    min-height: 100vh;
+
+    box-sizing: content-box;
+    margin: auto;
+    width: 700px;
+    /* height: 100vh; */
+    padding: 50px;
+    background-color: white;
+}
+
+.container_pr h1 {
+    /* display: flex; */
+    margin: auto;
+    margin-bottom: 20px;
+    text-align: center;
+
+}
+
+.userinf {
+    width: 70%;
+    float: right;
+    /* display: inline-block; */
+    /* height: 0px; */
+}
+
