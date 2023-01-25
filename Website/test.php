@@ -12,7 +12,6 @@
     function add_co2($value)
     {
         $sum = $sum + $value;
-        echo $sum;
     }
     ?>
 </head>
@@ -95,23 +94,23 @@
             <div class="Q7">
                 <h3>What is your gas usage per year?</h3>
                 <ul class="options7">
-                    <button class="test_button" onclick="add_to_sum(900 * 1.78)">Up to 900m3</button><br>
-                    <button class="test_button" onclick="add_to_sum(1500 * 1.78)">900 m3 - 1500 m3</button><br>
-                    <button class="test_button" onclick="add_to_sum(2000 * 1.78)">1500 m3 - 2000 m3</button><br>
-                    <button class="test_button" onclick="add_to_sum(2500 * 1.78)">More than 2000 m3</button><br>
-                    <button class="test_button" onclick="add_to_sum(1750 * 1.78)">I don't know</button><br>
+                    <button class="test_button" onclick="add_co2(900 * 1.78)">Up to 900m3</button><br>
+                    <button class="test_button" onclick="add_co2(1500 * 1.78)">900 m3 - 1500 m3</button><br>
+                    <button class="test_button" onclick="add_co2(2000 * 1.78)">1500 m3 - 2000 m3</button><br>
+                    <button class="test_button" onclick="add_co2(2500 * 1.78)">More than 2000 m3</button><br>
+                    <button class="test_button" onclick="add_co2(1750 * 1.78)">I don't know</button><br>
                 </ul>
             </div>
             <div class="Q8">
                 <h3>What is your electricity usage per year?</h3>
                 <ul class="options8">
-                    <button class="test_button" onclick="add_to_sum(2000 * 0,37)">Up to 2000 kWh</button><br>
-                    <button class="test_button" onclick="add_to_sum(2500 * 0,37)">2000 - 2500 kWh</button><br>
-                    <button class="test_button" onclick="add_to_sum(3000 * 0,37)">2500 - 3000 kWh</button><br>
-                    <button class="test_button" onclick="add_to_sum(3500 * 0,37)">3000 - 3500 kWh</button><br>
-                    <button class="test_button" onclick="add_to_sum(4000 * 0,37)">3500 - 4000 kWh</button><br>
-                    <button class="test_button" onclick="add_to_sum(4500 * 0,37)">4000 kWh or more</button><br>
-                    <button class="test_button" onclick="add_to_sum(3500 * 0,37)">I don't know</button><br>
+                    <button class="test_button" onclick="add_co2(2000 * 0,37)">Up to 2000 kWh</button><br>
+                    <button class="test_button" onclick="add_co2(2500 * 0,37)">2000 - 2500 kWh</button><br>
+                    <button class="test_button" onclick="add_co2(3000 * 0,37)">2500 - 3000 kWh</button><br>
+                    <button class="test_button" onclick="add_co2(3500 * 0,37)">3000 - 3500 kWh</button><br>
+                    <button class="test_button" onclick="add_co2(4000 * 0,37)">3500 - 4000 kWh</button><br>
+                    <button class="test_button" onclick="add_co2(4500 * 0,37)">4000 kWh or more</button><br>
+                    <button class="test_button" onclick="add_co2(3500 * 0,37)">I don't know</button><br>
                 </ul>
             </div>
             <div class="Q9">

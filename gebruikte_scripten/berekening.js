@@ -31,6 +31,7 @@ function add_to_sum(value)
 
 // start
 
+/*
 var shoppinglist = new Array(10);
 var product = {};
 product['name'] = 'naam';
@@ -45,7 +46,7 @@ var url = new URL('https://webtech-in16.webtech-uva.nl/');
 url.searchParams.append('sum', b);
 var url_str = url.href;
 console.log(url_str);
-
+*/
 // window.location.href = "url";
 
 // end

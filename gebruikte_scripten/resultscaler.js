@@ -26,6 +26,7 @@ function alert()
 // start
 
 // var url_str = window.location;
+/*
 var url_str = 'https://webtech-in16.webtech-uva.nl/?sum=50';
 var string = new URL(url_str).searchParams;
 
@@ -43,7 +44,7 @@ console.log(a);
 
 let percentage = percent(average, current);
 scale_img(percentage);
-
+*/
 // https://linuxhint.com/change-css-variables-javascript/
 
 var store = document.querySelector(':root');
