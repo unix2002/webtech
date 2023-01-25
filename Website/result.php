@@ -38,6 +38,7 @@
             </div>
 
             <div class="result_text">
+                <!-- get result from database -->
                 <p>Your footprint is:<br><span id="footprint"></span> m3</p>
                 <br>
                 <p>The average footprint is:<br><span id="avg_footprint"></span></p>

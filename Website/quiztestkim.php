@@ -6,6 +6,14 @@
     <meta charset="UTF-8">
 
     <link rel="stylesheet" href="style.css">
+    <?php
+    $sum = 0;
+
+    function add_to_sum ($value)
+    {
+        $sum = $sum + $value;
+    }
+    ?>
 </head>
 
 <body>
@@ -130,6 +138,8 @@
                     <p>Thank you for your time :)</p>
                     <a class="quiz_button" href="index.php">Homepage</a>
                     <input type="submit" name="submit" value="Submit">
+                    <!-- post result naar database -->
+                    <a class="quiz_button" href="result.php">Check your footprint</a>
                 </div>
                 <script src="form.js"></script>
             </form>
