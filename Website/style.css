@@ -10,10 +10,6 @@
     padding: 12px 8%;
 }
 
-.brand_img {
-    width: 50px;
-}
-
 /*BUTTONS*/
 
 .button {
@@ -105,7 +101,7 @@
 .hamburgerBar {
     height: 4px;
     width: 24px;
-    background-color: white;
+    background-color: black;
     margin: 4px auto;
     display: block;
     transition: 0.3s ease;
