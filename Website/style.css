@@ -408,10 +408,10 @@
 
 .result_img_average{
     display: block;
-    position: fixed;
+    /* position: fixed; */
     margin-left: auto;
     margin-right: auto;
-    /* margin-top: auto; */
+    margin-top: auto;
     width: 100px;
     height: auto;
 }
@@ -419,6 +419,9 @@
 .result_img_user{
     /* background-color is for testing purposes */
     background-color: yellow;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     position: fixed; left: 47%; top: 36%;
     width: 100px;
     height: auto;
