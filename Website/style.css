@@ -408,10 +408,9 @@
 
 .result_img_average{
     display: block;
-    /* position: fixed; */
     margin-left: auto;
     margin-right: auto;
-    margin-top: auto;
+    /* margin-top: auto; */
     width: 100px;
     height: auto;
 }
