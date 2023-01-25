@@ -202,12 +202,21 @@
 .content h1 {
     color: black;
     font-size: 60px;
+    float: left;
+    margin-bottom: 6px;
 }
 
 .content p {
     color: black;
-    margin: 12px 0 20px;
+    margin-bottom: 12px;
     font-size: 16px;
+}
+
+.homeIMG {
+    margin-top: 92px;
+    margin-right: 100px;
+    width: 35%;
+    float: right;
 }
 
 /*ABOUT US PAGE*/
