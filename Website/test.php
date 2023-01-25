@@ -9,6 +9,7 @@
     <script src="../gebruikte_scripten/berekening.js"></script>
     <?php
     $sum = 0;
+
     function add_co2($value)
     {
         $sum = $sum + $value;
