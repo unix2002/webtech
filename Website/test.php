@@ -7,12 +7,19 @@
 
     <link rel="stylesheet" href="style.css">
     <script src="../gebruikte_scripten/berekening.js"></script>
+    <?php
+    $sum = 0;
+    function add_co2($value)
+    {
+        $sum = $sum + $value;
+        echo $sum;
+    }
+    ?>
 </head>
 
 <body>
     <div class="container">
         <nav>
-            <!--Source: https://freepngimg.com/miscellaneous/footprints-->
             <img class="brand_img" src="./img/29755-9-footprints-hd-thumb.png">
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -21,12 +28,10 @@
             </ul>
             <a class="button" href="login.html">Login Here</a>
         </nav>
+        <?php
+            echo "sum = " .$sum.
+        ?>
         <div class="form">
-            <!--
-                Source:
-                https://footprint.wwf.org.uk/#/
-                https://www.footprintcalculator.org/home/en
-            -->
             <div class="Q1">
                 <h3>How often do you eat animal-based products?</h3>
                 <ul class="options1">
@@ -48,11 +53,11 @@
             <div class="Q3">
                 <h3>What is your fuel usage per week?</h3>
                 <ul class="options3">
-                    <button class="test_button" onclick="add_to_sum(10)">1 - 10 litre</button><br>
-                    <button class="test_button" onclick="add_to_sum(20)">10 - 20 litre</button><br>
-                    <button class="test_button" onclick="add_to_sum(30)">20 - 30 litre</button><br>
-                    <button class="test_button" onclick="add_to_sum(40)">40 - 50 litre</button><br>
-                    <button class="test_button" onclick="add_to_sum(50)">50+ litre</button><br>
+                    <button class="test_button" onclick="add_co2(10)">1 - 10 litre</button><br>
+                    <button class="test_button" onclick="add_co2(20)">10 - 20 litre</button><br>
+                    <button class="test_button" onclick="add_co2(30)">20 - 30 litre</button><br>
+                    <button class="test_button" onclick="add_co2(40)">40 - 50 litre</button><br>
+                    <button class="test_button" onclick="add_co2(50)">50+ litre</button><br>
                     <button class="test_button">I don't have a car</button><br>
                     <button class="test_button">I only travel by public transport</button><br>
                 </ul>
