@@ -132,8 +132,28 @@
         left: 0;
     }
 
+    .pageLink:hover {
+        color: #8a9a5b;
+    }
+
     .item {
         margin: 40px 0;
+    }
+
+    .login {
+        color: black;
+        padding: 12px 44px;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 18px;
+        border-radius: 25px;
+        border-top-right-radius: 0;
+        background-color: #8a9a5b;
+        transition: 0.2s;
+    }
+
+    .login:hover {
+        background-color: rgba(138, 154, 91, 0.8);
     }
 
     .hamburgerMenu {
