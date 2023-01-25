@@ -17,10 +17,10 @@
         <nav class="bar">
             <a class="brand" href="index.html">MyEcology</a>
             <ul class="barItems">
-                <li class="item"><a class="pageLink" href="index.html">Home</a></li>
-                <li class="item"><a class="pageLink" href="about_us.html">About Us</a></li>
-                <li class="item"><a class="pageLink" href="leaderboard.html">Leaderboard</a></li>
-                <li class="item"><a class="login" href="login.html">Login Here</a></li>
+                <li class="item"><a class="pageLink" href="index.php">Home</a></li>
+                <li class="item"><a class="pageLink" href="about_us.php">About Us</a></li>
+                <li class="item"><a class="pageLink" href="leaderboard.php">Leaderboard</a></li>
+                <li class="item"><a class="login" href="login.php">Login Here</a></li>
             </ul>
             <div class="hamburgerMenu">
                 <span class="hamburgerBar"></span>
