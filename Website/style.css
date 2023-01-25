@@ -189,6 +189,10 @@
     .photo {
         width: 120px;
     }
+
+    .homeIMG {
+        display: none;
+    }
 }
 
 
