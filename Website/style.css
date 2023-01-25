@@ -203,6 +203,34 @@
     margin-bottom: 10px;
 }
 
+
+.card {
+    margin: auto;
+    text-align: center;
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    transition: 0.4s;
+    float: left;
+    padding: 50px;
+}
+
+.card:hover {
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card h2 {
+    font-size: 20px;
+}
+
+.card p {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.photo {
+    width: 120px;
+}
+
 .row {
     margin: 0 -5px;
 }
@@ -211,26 +239,6 @@
     display: flex;
     clear: both;
     content: "";
-}
-
-.card {
-    transition: 0.4s;
-    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 25%;
-    float: left;
-}
-
-.card:hover {
-    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.2);
-}
-
-.person {
-    text-align: center;
-    margin: 10px;
-}
-
-.card img {
-    margin-left: 25%;
 }
 
 /*QUIZ PAGE*/
