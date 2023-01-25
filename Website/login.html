@@ -4,20 +4,30 @@
 <head>
     <title>MyEcology</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="container">
-        <nav>
-            <!--Source: https://freepngimg.com/miscellaneous/footprints-->
-            <img class="brand_img" src="./img/29755-9-footprints-hd-thumb.png">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about_us.html">About Us</a></li>
-                <li><a href="leaderboard.html">Leaderboard</a></li>
+    <header class="header">
+        <nav class="bar">
+            <a class="brand" href="index.html">MyEcology</a>
+            <ul class="barItems">
+                <li class="item"><a class="pageLink" href="index.html">Home</a></li>
+                <li class="item"><a class="pageLink" href="about_us.html">About Us</a></li>
+                <li class="item"><a class="pageLink" href="leaderboard.html">Leaderboard</a></li>
+                <li class="item"><a class="login" href="login.html">Login Here</a></li>
             </ul>
+            <div class="hamburgerMenu">
+                <span class="hamburgerBar"></span>
+                <span class="hamburgerBar"></span>
+                <span class="hamburgerBar"></span>
+            </div>
+            <script src="mobile.js"></script>
         </nav>
+    </header>
+    <div class="container">
         <div class="content">
 
         </div>
