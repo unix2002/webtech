@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE.php>
 <html lang="en">
 
 <head>
@@ -15,24 +15,27 @@
             <img class="brand_img" src="/img/29755-9-footprints-hd-thumb.png">
             <ul>
                 <li><a href="index.php">Home</a></li>
-                <li><a href="about_us.html">About Us</a></li>
-                <li><a href="leaderboard.html">Leaderboard</a></li>
+                <li><a href="about_us.php">About Us</a></li>
+                <li><a href="leaderboard.php">Leaderboard</a></li>
             </ul>
-            <a class="button" href="login.html">Login Here</a>
+            <a class="button" href="login.php">Login Here</a>
         </nav>
         <div class="content">
         </div>
+        <?php
+        if(!isset($_POST["submit"])) {
+        ?>
         <div class="form">
             <!--
                 Source:
                 https://footprint.wwf.org.uk/#/
                 https://www.footprintcalculator.org/home/en
             -->
-            <form action="quiztest.php" method="post">
+            <form action="quiztest.php" method="post" id="form">
                 <div class="Q1">
                     <h3>How often do you eat animal-based products?</h3>
                     <ul class="options1">
-                        <li><input type="radio" name="q1" value="1">Daily</li>
+                        <li><input type="radio" name="q1" value="1">Daily</label></li>
                         <li><input type="radio" name="q1" value="2">Often</li>
                         <li><input type="radio" name="q1" value="3">Sometimes</li>
                         <li><input type="radio" name="q1" value="4">Never</li>
@@ -131,24 +134,24 @@
                 <script src="form.js"></script>
             </form>
         </div>
-            <?php
-                if(isset($_POST['submit'])) {
-                    $q1 = $_POST['q1'];
-                    $q2 = $_POST['q2'];
-                    $q3 = $_POST['q3'];
-                    $q4 = $_POST['q4'];
-                    $q5 = $_POST['q5'];
-                    $q6 = $_POST['q6'];
-                    $q7 = $_POST['q7'];
+        <?php
+        } else if(isset($_POST['submit'])) {
+                $q1 = $_POST['q1'];
+                $q2 = $_POST['q2'];
+                $q3 = $_POST['q3'];
+                $q4 = $_POST['q4'];
+                $q5 = $_POST['q5'];
+                $q6 = $_POST['q6'];
+                $q7 = $_POST['q7'];
 
-                    echo "q1:" . $q1;
-                    echo "q2:" . $q2;
-                    echo "q3:" . $q3;
-                    echo "q4:" . $q4;
-                    echo "q5:" . $q5;
-                    echo "q6:" . $q6;
-                    echo "q7:" . $q7;
-                }
+                echo "q1:" . $q1 . "\n";
+                echo "q2:" . $q2 . "\n";
+                echo "q3:" . $q3 . "\n";
+                echo "q4:" . $q4 . "\n";
+                echo "q5:" . $q5 . "\n";
+                echo "q6:" . $q6 . "\n";
+                echo "q7:" . $q7 . "\n";
+            }
             ?>
     </div>
 </body>
