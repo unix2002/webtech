@@ -35,16 +35,16 @@ function get_cookie(cookie_name)
     let cookie_array = cookie_val.split(";")
     while(current_name != cookie_name)
     {
-        console.log("loop");
+        // console.log("loop");
         current_pair = cookie_array[index].split("=");
         current_val = current_pair[1];
         current_name = current_pair[0];
         index++;
     }
 
-    console.log(current_name + " + " + current_val);
+    // console.log(current_name + " + " + current_val);
 
-    return cookie_val;
+    return current_val;
 
 }
 
@@ -72,7 +72,7 @@ scale_img(percentage);
 */
 // https://linuxhint.com/change-css-variables-javascript/
 
-get_cookie();
+get_cookie("sum");
 
 // var store = document.querySelector(':root');
 
