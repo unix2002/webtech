@@ -423,14 +423,14 @@
 
 .result_img_user{
     /* background-color is for testing purposes */
-    background-color: yellow;
+    /* background-color: yellow; */
     position: fixed; left: 47%; top: 36%;
     width: 100px;
     height: auto;
 }
 
 .animate{
-    background-color: yellow;
+    /* background-color: yellow; */
     position: fixed; left: 47%; top: 36%;
     width: 100px;
     height: auto;
