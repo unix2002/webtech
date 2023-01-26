@@ -21,6 +21,8 @@ $average = "average footprint placeholder";
 <body>
 <?php
     include_once 'header_nieuw.php';
+
+    echo "cookies are: " . $_COOKIE['q1'];
 ?>
     <header class="header">
         <nav class="bar">
@@ -77,6 +79,36 @@ $average = "average footprint placeholder";
 
             <button class="quiz_button" onclick="animation_player()">See my result</button> -->
         <!-- </div> -->
+        <input type="submit" name="submit" value="Submit">
+        <?php
+
+        // cookies misschien nodig voor resultpage
+         if(isset($_POST['submit'])) {
+                $q1 = $_POST['q1'];
+                add_cookie('q1', $_POST['q1']);
+                $q2 = $_POST['q2'];
+                add_cookie('q2', $_POST['q2']);
+                $q3 = $_POST['q3'];
+                add_cookie('q3', $_POST['q3']);
+                $q4 = $_POST['q4'];
+                add_cookie('q4', $_POST['q4']);
+                $q5 = $_POST['q5'];
+                add_cookie('q5', $_POST['q5']);
+                $q6 = $_POST['q6'];
+                add_cookie('q6', $_POST['q6']);
+                $q7 = $_POST['q7'];
+                add_cookie('q7', $_POST['q7']);
+
+                echo "cookie = " . $_COOKIE['q1'];
+                echo "q1:" . $q1 . "\n";
+                echo "q2:" . $q2 . "\n";
+                echo "q3:" . $q3 . "\n";
+                echo "q4:" . $q4 . "\n";
+                echo "q5:" . $q5 . "\n";
+                echo "q6:" . $q6 . "\n";
+                echo "q7:" . $q7 . "\n";
+            }
+            ?>
     </div>
 </body>
 </html>

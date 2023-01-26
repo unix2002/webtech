@@ -160,6 +160,7 @@
                         <li><input type="radio" name="q9" value="5">I don't sort my trash</li>
                     </ul>
                 </div>
+            </div>
                 <div class="last">
                     <h1>That's it</h1>
                     <p>Thank you for your time :)</p>
@@ -168,7 +169,6 @@
                 </div>
                 <script src="form.js"></script>
             </form>
-        </div>
         <?php
 
         // cookies misschien nodig voor resultpage
