@@ -2,7 +2,7 @@
 <?php
     $cookie_name = "sum";
     $cookie_value = 0;
-    setcookie($cookie_name, $cookie_value);
+    setcookie($cookie_name, $cookie_value, time() + 600);
 ?>
 
 <html lang="en">
@@ -17,17 +17,19 @@
     function add_to_sum($value)
     {
         $sum = $sum + $value;
-        setcookie($cookie_name, $sum);
+   	setcookie($cookie_name, $sum, time() + 600);
     }
+
     function add_cookie($question, $val)
-    {
-        set_cookie($question, $val);
-    }
+	{
+		setcookie($question, $val);
+	}
+
     ?>
 </head>
 
 <body>
-    <header class="header">
+	<header class="header">
         <nav class="bar">
             <a class="brand" href="index.php">MyEcology</a>
             <ul class="barItems">
@@ -66,11 +68,11 @@
                 https://footprint.wwf.org.uk/#/
                 https://www.footprintcalculator.org/home/en
             -->
-            <form action="quiztest.php" method="post" id="form">
-            <div class="Q1">
+            <form action="quiztestkim.php" method="post" id="form">
+                <div class="Q1">
                     <h3>How often do you eat animal-based products?</h3>
                     <ul class="options1">
-                        <li><input type="radio" name="q1" value="1">Daily</label></li>
+			<li><input type="radio" name="q1" value="1">Daily</label></li>
                         <li><input type="radio" name="q1" value="2">Often</li>
                         <li><input type="radio" name="q1" value="3">Sometimes</li>
                         <li><input type="radio" name="q1" value="4">Never</li>
@@ -85,7 +87,7 @@
                         <li><input type="radio" name="q2" value="4">€50 or higher</li>
                     </ul>
                 </div>
-                <div class="Q3">
+		<div class="Q3">
                     <h3>What is your fuel usage per week?</h3>
                     <ul class="options3">
                         <li><input type="radio" name="q3" value="1">1 litre - 10 litres</li>
@@ -131,7 +133,7 @@
                 <div class="Q7">
                     <h3>What is your gas usage per year?</h3>
                     <ul class="options7">
-                        <li><input type="radio" name="q7" value="1">up to 900 m3</li>
+			<li><input type="radio" name="q7" value="1">up to 900 m3</li>
                         <li><input type="radio" name="q7" value="2">900 m3 - 1500 m3</li>
                         <li><input type="radio" name="q7" value="3">1500 m3 - 2000 m3</li>
                         <li><input type="radio" name="q7" value="4">More than 2000 m3</li>
@@ -141,7 +143,7 @@
                 <div class="Q8">
                     <h3>What is your electricity usage per year?</h3>
                     <ul class="options8">
-                        <li><input type="radio" name="q8" value="1">Up to 2000 kWh</li>
+			<li><input type="radio" name="q8" value="1">Up to 2000 kWh</li>
                         <li><input type="radio" name="q8" value="2">2000 kWh - 2500 kWh</li>
                         <li><input type="radio" name="q8" value="3">2500 kWh - 3000 kWh</li>
                         <li><input type="radio" name="q8" value="4">3000 kWh - 3500 kWh</li>
@@ -153,18 +155,19 @@
                 <div class="Q9">
                     <h3>Do you seperate your trash?</h3>
                     <ul class="options9">
-                        <li><input type="radio" name="q9" value="1">Almost everything</li>
+			<li><input type="radio" name="q9" value="1">Almost everything</li>
                         <li><input type="radio" name="q9" value="2">Only organic waste</li>
                         <li><input type="radio" name="q9" value="3">Only paper and plastic</li>
                         <li><input type="radio" name="q9" value="4">Only glass</li>
                         <li><input type="radio" name="q9" value="5">I don't sort my trash</li>
+			<input type="submit" name="submit" value="Submit">
                     </ul>
                 </div>
-            </div>
+	</div>
                 <div class="last">
                     <h1>That's it</h1>
                     <p>Thank you for your time :)</p>
-                    <a class="quiz_button" href="index.php">Homepage</a>
+                    <a class="quiz_button" href="result.php">Homepage</a>
                     <input type="submit" name="submit" value="Submit">
                 </div>
                 <script src="form.js"></script>
@@ -174,21 +177,23 @@
         // cookies misschien nodig voor resultpage
         } else if(isset($_POST['submit'])) {
                 $q1 = $_POST['q1'];
-                add_cookie('q1', $_POST['q1']);
+		add_cookie('q1', $_POST['q1']);
                 $q2 = $_POST['q2'];
-                add_cookie('q2', $_POST['q2']);
+		add_cookie('q2', $_POST['q2']);
                 $q3 = $_POST['q3'];
-                add_cookie('q3', $_POST['q3']);
+		add_cookie('q3', $_POST['q3']);
                 $q4 = $_POST['q4'];
-                add_cookie('q4', $_POST['q4']);
+		add_cookie('q4', $_POST['q4']);
                 $q5 = $_POST['q5'];
-                add_cookie('q5', $_POST['q5']);
+		add_cookie('q5', $_POST['q5']);
                 $q6 = $_POST['q6'];
-                add_cookie('q6', $_POST['q6']);
+		add_cookie('q6', $_POST['q6']);
                 $q7 = $_POST['q7'];
-                add_cookie('q7', $_POST['q7']);
+		add_cookie('q7', $_POST['q7']);
 
-                echo "cookie = " . $_COOKIE['q1'];
+		echo "cookie = " . $_COOKIE['q1'];
+		echo "cookie = " . $_COOKIE['q2'];
+		echo "cookie = " . $_COOKIE['q3'];
                 echo "q1:" . $q1 . "\n";
                 echo "q2:" . $q2 . "\n";
                 echo "q3:" . $q3 . "\n";
@@ -198,6 +203,7 @@
                 echo "q7:" . $q7 . "\n";
             }
             ?>
+	<a class="quiz_button" href="result.php">Homepage</a>
     </div>
 </body>
 </html>
