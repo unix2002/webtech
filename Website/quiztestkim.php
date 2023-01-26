@@ -188,6 +188,7 @@
                 $q7 = $_POST['q7'];
                 add_cookie('q7', $_POST['q7']);
 
+                echo "cookie = " . $_COOKIE['q1'];
                 echo "q1:" . $q1 . "\n";
                 echo "q2:" . $q2 . "\n";
                 echo "q3:" . $q3 . "\n";
