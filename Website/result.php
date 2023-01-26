@@ -1,6 +1,11 @@
 <!DOCTYPE.php>
 <html lang="en">
 
+<?php
+$sum = $_COOKIE["sum"];
+$average = "average footprint placeholder";
+?>
+
 <head>
     <title>MyEcology</title>
     <meta charset="UTF-8">
@@ -10,7 +15,7 @@
 
     <!-- <script src="../gebruikte_scripten/berekening.js"></script>
     <script src="../gebruikte_scripten/resultscaler.js"></script> -->
-    
+
 </head>
 
 <body>
