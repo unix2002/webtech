@@ -1,4 +1,10 @@
 <!DOCTYPE.php>
+<?php
+    $cookie_name = "sum";
+    $cookie_value = 0;
+    setcookie($cookie_name, $cookie_value, 0, /);
+?>
+
 <html lang="en">
 
 <head>
@@ -11,6 +17,7 @@
     function add_to_sum($value)
     {
         $sum = $sum + $value;
+        setcookie($cookie_name, $sum, 0, /);
     }
     ?>
 </head>
