@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en>
 <?php
     $cookie_name = "sum";
     $cookie_value = 0;
-    setcookie($cookie_name, $cookie_value, 0, /);
+    // setcookie($cookie_name, $cookie_value, 0, /);
 ?>
 
 <html lang="en">
