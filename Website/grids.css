@@ -1,0 +1,33 @@
+html body {
+  margin: 0;
+  padding: 0;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+body {
+  width: 90vw;
+}
+
+.grid-container {
+  display: inline-grid;
+  place-items: center;
+  gap: 2%;
+  grid-template-columns: auto auto auto auto;
+  width: 100%;
+}
+
+.grid-item {
+  border-radius: 10%;
+  border: 2px solid #3498db;
+  overflow: hidden;
+  font-size: 0.5rem;
+  text-align: center;
+  width: 20vw;
+  height: 20vw;
+}
+
+.grid-item img {
+  width: 100%;
+  object-fit: cover;
+}

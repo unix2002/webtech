@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE.php>
 <html lang="en">
 
 <head>
@@ -10,23 +10,9 @@
 </head>
 
 <body>
-    <header class="header">
-        <nav class="bar">
-            <a class="brand" href="index.html">MyEcology</a>
-            <ul class="barItems">
-                <li class="item"><a class="pageLink" href="index.html">Home</a></li>
-                <li class="item"><a class="pageLink" href="about_us.html">About Us</a></li>
-                <li class="item"><a class="pageLink" href="leaderboard.html">Leaderboard</a></li>
-                <li class="item"><a class="login" href="login.html">Login Here</a></li>
-            </ul>
-            <div class="hamburgerMenu">
-                <span class="hamburgerBar"></span>
-                <span class="hamburgerBar"></span>
-                <span class="hamburgerBar"></span>
-            </div>
-            <script src="mobile.js"></script>
-        </nav>
-    </header>
+<?php
+    include_once 'header_nieuw.php';
+?>
     <div class="container">
         <div class="about_us">
             <h1>About Us</h1>

@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE.php>
+.php lang="en">
 
 <head>
     <title>MyEcology</title>
@@ -13,12 +13,12 @@
 <body>
     <header class="header">
         <nav class="bar">
-            <a class="brand" href="index.html">MyEcology</a>
+            <a class="brand" href="index.php">MyEcology</a>
             <ul class="barItems">
-                <li class="item"><a class="pageLink" href="index.html">Home</a></li>
-                <li class="item"><a class="pageLink" href="about_us.html">About Us</a></li>
-                <li class="item"><a class="pageLink" href="leaderboard.html">Leaderboard</a></li>
-                <li class="item"><a class="login" href="login.html">Login Here</a></li>
+                <li class="item"><a class="pageLink" href="index.php">Home</a></li>
+                <li class="item"><a class="pageLink" href="about_us.php">About Us</a></li>
+                <li class="item"><a class="pageLink" href="leaderboard.php">Leaderboard</a></li>
+                <li class="item"><a class="login" href="login.php">Login Here</a></li>
             </ul>
             <div class="hamburgerMenu">
                 <span class="hamburgerBar"></span>
@@ -133,9 +133,9 @@
             <p>Thank you for your time and scroll down to find out your ecological footprint!</p>
             <!--Source: -->
             <img class="tips" src="./img/15-simple-ways-1.png">
-            <a class="quiz_button" href="result.html">Check your footprint</a>
+            <a class="quiz_button" href="result.php">Check your footprint</a>
         </div>
         <script src="form.js"></script>
     </div>
 </body>
-</html>
+<.php>

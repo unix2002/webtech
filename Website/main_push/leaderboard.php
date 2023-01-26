@@ -25,11 +25,11 @@
         				event.preventDefault(); // prevent the form from submitting
         				$.ajax({
             					type: "POST", // use the POST method
-            					url: "./api/api_request.php", // the URL of the PHP script
+            					url: "/var/www/html/api/api_request.php", // the URL of the PHP script
             					data: $("#form").serialize(), // the form data
             					success: function(data) {
                 					// do something with the returned data
-                					$("#result").html(data);
+                					$("#result").php(data);
 							resetFoot();
 							growFoot(data);
             					}
@@ -40,28 +40,14 @@
 		</script>
 	</head>
 	<body>
-		<header class="header">
-			<nav class="bar">
-				<a class="brand" href="index.html">MyEcology</a>
-				<ul class="barItems">
-					<li class="item"><a class="pageLink" href="index.html">Home</a></li>
-					<li class="item"><a class="pageLink" href="about_us.html">About Us</a></li>
-					<li class="item"><a class="pageLink" href="leaderboard.html">Leaderboard</a></li>
-					<li class="item"><a class="login" href="login.html">Login Here</a></li>
-				</ul>
-				<div class="hamburgerMenu">
-					<span class="hamburgerBar"></span>
-					<span class="hamburgerBar"></span>
-					<span class="hamburgerBar"></span>
-				</div>
-				<script src="mobile.js"></script>
-			</nav>
-		</header>
+<?php
+    include_once 'header_nieuw.php';
+?>
     <div class="container">
 	<div align="left" class="content">
             <h1>Leaderboard</h1>
 	    <p>What country average do you want to compare your score with?</p>
-		<form id="form" action="https://webtech-in16.webtech-uva.nl/leaderboard.html" method="post">
+		<form id="form" action="https://webtech-in16.webtech-uva.nl/leaderboard.php" method="post">
 		<label for="country">Enter the country name:</label>
 		<select class="button" name="country" id="data_list">
 			<option value="Armenia">Armenia</option>
