@@ -18,9 +18,18 @@ function animation_player()
     targetElem.className = "animate";
 }
 
-function alert()
+// function alert()
+// {
+//     alert("buttons");
+// }
+
+function set_cookie(question, value)
 {
-    alert("buttons");
+    var new_cookie = question;
+    // alert(new_cookie);
+    document.cookie = question + "=" + value + "; expires=0";
+    // console.log(document.cookie);
+    alert(document.cookie);
 }
 
 function get_cookie(cookie_name)
@@ -41,6 +50,8 @@ function get_cookie(cookie_name)
         current_name = current_pair[0];
         index++;
     }
+
+    alert(current_name + " + " + current_val);
 
     // console.log(current_name + " + " + current_val);
 
@@ -72,7 +83,8 @@ scale_img(percentage);
 */
 // https://linuxhint.com/change-css-variables-javascript/
 
-get_cookie("sum");
+// get_cookie("sum");
+// set_cookie("q1", "1");
 
 // var store = document.querySelector(':root');
 

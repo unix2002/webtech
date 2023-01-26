@@ -22,12 +22,12 @@ function add_to_sum(value)
     current_url.searchParams.append('sum', new_sum);
 }
 
-(function start_sum()
-{
-    // alert("startsum called");
-    var current_url = window.location.href;
-    current_url.searchParams.append('sum', 0);
-})()
+// (function start_sum()
+// {
+//     // alert("startsum called");
+//     var current_url = window.location.href;
+//     current_url.searchParams.append('sum', 0);
+// })()
 
 // start
 

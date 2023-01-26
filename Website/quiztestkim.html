@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<?php
-    $cookie_name = "sum";
-    $cookie_value = 0;
-    // setcookie($cookie_name, $cookie_value, 0, /);
-?>
 
 <html lang="en">
 
@@ -12,18 +7,8 @@
     <meta charset="UTF-8">
 
     <link rel="stylesheet" href="style.css">
-    <?php
-    $sum = 0;
-    function add_to_sum($value)
-    {
-        $sum = $sum + $value;
-        // setcookie($cookie_name, $sum, 0, /);
-    }
-    function add_cookie($question, $val)
-    {
-        add_cookie($q1, $_POST['$q1']);
-    }
-    ?>
+    <script src="../gebruikte_scripten/berekening.js"></script>
+    <script src="../gebruikte_scripten/resultscaler.js"></script>
 </head>
 
 <body>
@@ -57,34 +42,33 @@
         </nav>
         <div class="content">
         </div>
-        <?php
-        if(!isset($_POST["submit"])) {
-        ?>
         <div class="form">
             <!--
                 Source:
                 https://footprint.wwf.org.uk/#/
                 https://www.footprintcalculator.org/home/en
             -->
-            <form action="quiztest.php" method="post" id="form">
                 <div class="Q1">
                     <h3>How often do you eat animal-based products?</h3>
                     <ul class="options1">
-                        <li><input type="button" name="q1" value="1">Daily</label></li>
-                        <li><input type="button" name="q1" value="2">Often</li>
-                        <li><input type="button" name="q1" value="3">Sometimes</li>
-                        <li><input type="button" name="q1" value="4">Never</li>
+                        <button class="test_button" onclick="set_cookie('q1', 1)">Daily</button><br>
+                        <button class="test_button" onclick="set_cookie('q1', 2)">Often</button><br>
+                        <button class="test_button" onclick="set_cookie('q1', 3)">Sometimes</button><br>
+                        <button class="test_button" onclick="set_cookie('q1', 4)">Never</button>
                     </ul>
                 </div>
                 <div class="Q2">
                     <h3>How much money do you spend on takeaways and restaurants?</h3>
                     <ul class="options2">
-                        <li><input type="button" name="q2" value="1">€0</li>
-                        <li><input type="button" name="q2" value="2">€1 - €20</li>
-                        <li><input type="button" name="q2" value="3">€20 - €50</li>
-                        <li><input type="button" name="q2" value="4">€50 or higher</li>
+                        <button class="test_button" name="q2" value="1">€0</button><br>
+                        <button class="test_button" name="q2" value="2">€1 - €20</button><br>
+                        <button class="test_button" name="q2" value="3">€20 - €50</button><br>
+                        <button class="test_button" name="q2" value="4">€50 or more</button>
                     </ul>
                 </div>
+                <script>
+                    get_cookie('q1');
+                </script>
                 <div class="Q3">
                     <h3>What is your fuel usage per week?</h3>
                     <ul class="options3">
@@ -167,29 +151,7 @@
                     <input type="submit" name="submit" value="Submit">
                 </div>
                 <script src="form.js"></script>
-            </form>
         </div>
-        <?php
-
-        // cookies misschien nodig voor resultpage
-        } else if(isset($_POST['submit'])) {
-                $q1 = $_POST['q1'];
-                $q2 = $_POST['q2'];
-                $q3 = $_POST['q3'];
-                $q4 = $_POST['q4'];
-                $q5 = $_POST['q5'];
-                $q6 = $_POST['q6'];
-                $q7 = $_POST['q7'];
-
-                echo "q1:" . $q1 . "\n";
-                echo "q2:" . $q2 . "\n";
-                echo "q3:" . $q3 . "\n";
-                echo "q4:" . $q4 . "\n";
-                echo "q5:" . $q5 . "\n";
-                echo "q6:" . $q6 . "\n";
-                echo "q7:" . $q7 . "\n";
-            }
-            ?>
     </div>
 </body>
 </html>
