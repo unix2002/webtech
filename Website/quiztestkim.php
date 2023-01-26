@@ -142,7 +142,7 @@
                 <div class="last">
                     <h1>That's it</h1>
                     <p>Thank you for your time :)</p>
-                    <a class="quiz_button" href="index.php">Homepage</a>
+                    <a class="quiz_button" href="result.php">Homepage</a>
                     <input type="submit" name="submit" value="Submit">
                 </div>
                 <script src="form.js"></script>
