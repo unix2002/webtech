@@ -253,3 +253,30 @@ img.avatar {
     /* height: 0px; */
 }
 
+/*LEADERBOARD*/
+
+.leadContent {
+    float: left;
+    margin-top: 24%;
+}
+
+.leadContent h2 {
+    font-size: 22px;
+}
+
+.leadContent p {
+    font-size: 16px;
+}
+
+.leadContent input {
+    margin-top: 4px;
+    margin-bottom:  10px;
+}
+
+.leadFoot {
+    height: 200px;
+    width: 160px;
+    float: right;
+    margin-top: 24%;
+    margin-right: 25%;
+}
