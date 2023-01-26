@@ -6,6 +6,13 @@
     <meta charset="UTF-8">
 
     <link rel="stylesheet" href="style.css">
+    <?php
+    $sum = 0;
+    function add_to_sum($value)
+    {
+        $sum = $sum + $value;
+    }
+    ?>
 </head>
 
 <body>
@@ -135,6 +142,8 @@
             </form>
         </div>
         <?php
+
+        // cookies misschien nodig voor resultpage
         } else if(isset($_POST['submit'])) {
                 $q1 = $_POST['q1'];
                 $q2 = $_POST['q2'];
@@ -153,6 +162,12 @@
                 echo "q7:" . $q7 . "\n";
             }
             ?>
+        <?php
+        if(isset($_COOKIE[$cookie_name]))
+        {
+            
+        }
+        ?>
     </div>
 </body>
 </html>

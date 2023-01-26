@@ -23,6 +23,31 @@ function alert()
     alert("buttons");
 }
 
+function get_cookie(cookie_name)
+{
+    // let cookie_val = document.cookie;
+    let cookie_val = "test=1;sum=2;test2=4";
+    // let name = cookie_name + "=";
+    var current_name = "";
+    var current_pair = "";
+    var current_val = "";
+    var index = 0;
+    let cookie_array = cookie_val.split(";")
+    while(current_name != cookie_name)
+    {
+        console.log("loop");
+        current_pair = cookie_array[index].split("=");
+        current_val = current_pair[1];
+        current_name = current_pair[0];
+        index++;
+    }
+
+    console.log(current_name + " + " + current_val);
+
+    return cookie_val;
+
+}
+
 // start
 
 // var url_str = window.location;
@@ -47,7 +72,9 @@ scale_img(percentage);
 */
 // https://linuxhint.com/change-css-variables-javascript/
 
-var store = document.querySelector(':root');
+get_cookie();
 
-store.setAttribute('--end_size', '600px');
+// var store = document.querySelector(':root');
+
+// store.setAttribute('--end_size', '600px');
 // end
