@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE.php>
 <html lang="en">
 
 <head>
@@ -8,11 +8,14 @@
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
     <link rel="stylesheet" href="style.css">
 
-    <script src="../gebruikte_scripten/berekening.js"></script>
-    <script src="../gebruikte_scripten/resultscaler.js"></script>
+    <!-- <script src="../gebruikte_scripten/berekening.js"></script>
+    <script src="../gebruikte_scripten/resultscaler.js"></script> -->
 </head>
 
 <body>
+<?php
+    include_once 'header_nieuw.php';
+?>
     <header class="header">
         <nav class="bar">
             <a class="brand" href="index.html">MyEcology</a>
