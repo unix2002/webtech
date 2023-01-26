@@ -1,5 +1,5 @@
-<!DOCTYPE.php>
-.php lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <title>MyEcology</title>
@@ -138,4 +138,4 @@
         <script src="form.js"></script>
     </div>
 </body>
-<.php>
+<html>

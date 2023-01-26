@@ -1,4 +1,5 @@
-<!DOCTYPE.php>
+<!DOCTYPE html>
+<html lang="en>
 <?php
     $cookie_name = "sum";
     $cookie_value = 0;
