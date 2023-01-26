@@ -169,12 +169,6 @@
                 echo "q7:" . $q7 . "\n";
             }
             ?>
-        <?php
-        if(isset($_COOKIE[$cookie_name]))
-        {
-            
-        }
-        ?>
     </div>
 </body>
 </html>

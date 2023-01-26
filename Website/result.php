@@ -30,16 +30,23 @@
             <script src="mobile.js"></script>
         </nav>
 
+        <div class="container">
+            <div class="form">
+                <p>Your footprint is:<br><span id="footprint"></span> m3</p>
+                <br>
+                <p>The average footprint is:<br><span id="avg_footprint"></span></p>
+            </div>
+        </div>
         <!-- <div class="content"> -->
-            <h1>Your result</h1>
+            <!-- <h1>Your result</h1>
             <img class="result_img_average" src="./img/footprint.png">
             <div id="target">
                 <img class="result_img_user" src="./img/footprint.png">
             </div>
 
-            <div class="result_text">
+            <div class="result_text"> -->
                 <!-- get result from database -->
-                <p>Your footprint is:<br><span id="footprint"></span> m3</p>
+                <!-- <p>Your footprint is:<br><span id="footprint"></span> m3</p>
                 <br>
                 <p>The average footprint is:<br><span id="avg_footprint"></span></p>
 
@@ -59,7 +66,7 @@
                 </script>
             </div>
 
-            <button class="quiz_button" onclick="animation_player()">See my result</button>
+            <button class="quiz_button" onclick="animation_player()">See my result</button> -->
         <!-- </div> -->
     </div>
 </body>
