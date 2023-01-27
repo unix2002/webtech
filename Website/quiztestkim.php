@@ -71,7 +71,7 @@
                 <div class="Q1">
                     <h3>How often do you eat animal-based products?</h3>
                     <ul class="options1">
-			<li><label for="q1a1"><input type="radio" id="q1a1" name="q1" value="1">Daily</label></li>
+		            	<li><label for="q1a1"><input type="radio" id="q1a1" name="q1" value="1">Daily</label></li>
                         <li><label for="q1a2"><input type="radio" name="q1" value="2" id="q1a2">Often</label></li>
                         <li><label for="q1a3"><input type="radio" name="q1" value="3" id="q1a3">Sometime</label></li>
                         <li><label for="q1a4"><input type="radio" name="q1" value="4" id="q1a4">Never</label></li>
