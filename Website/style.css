@@ -1,8 +1,15 @@
-* {
+
+\* {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
+}
+
+label{
+display: fixed;
+padding-right: 50px;
+background-color: transparent;
 }
 
 .container {
@@ -43,7 +50,7 @@
     list-style: none;
 }
 
-.login {
+.navBut {
     color: black;
     padding: 12px 44px;
     text-decoration: none;
@@ -55,7 +62,7 @@
     transition: 0.2s;
 }
 
-.login:hover {
+.navBut:hover {
     background-color: rgba(255, 255, 255, 0.692);
 }
 
@@ -97,6 +104,12 @@
     padding: 12px 44px;
 }
 
+/*Winkelwagen*/
+.next_and_previous {
+    position: absolute;
+    bottom: 0;
+}
+
 /*HAMBURGER MENU*/
 
 .hamburgerMenu {
@@ -115,7 +128,7 @@
 
 /*MOBILE VERSION*/
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 992px) {
     .barItems {
         top: 61px;
         left: -100%;
@@ -190,7 +203,7 @@
         font-size: 16px;
         font-weight: 400;
     }
-
+    
     .photo {
         width: 120px;
     }
@@ -200,18 +213,17 @@
     }
 }
 
-
 /*HOMEPAGE*/
 
 .content {
     max-width: 650px;
     margin-top: 12%;
+    float: left;
 }
 
 .content h1 {
     color: black;
     font-size: 60px;
-    float: left;
     margin-bottom: 6px;
 }
 
@@ -224,7 +236,7 @@
 .homeIMG {
     margin-top: 92px;
     margin-right: 100px;
-    width: 35%;
+    width: 32%;
     float: right;
 }
 
@@ -236,7 +248,6 @@
     font-size: 60px;
     margin-bottom: 10px;
 }
-
 
 .card {
     margin: auto;
@@ -299,8 +310,8 @@
 
 .form li:hover {
     background-color: rgba(0, 0, 0, 0.3);
-    padding: 4px;
-    width: 155px;
+/*    padding: 4px;*/
+   /* width: 155px;*/
     transition: 0.4s ease;
     box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.4);
     border-radius: 5px;
@@ -358,6 +369,8 @@
     margin-top: 22px;
     width: 90%;
 }
+
+
 
 /*RESULT PAGE*/
 
@@ -423,14 +436,14 @@
 
 .result_img_user{
     /* background-color is for testing purposes */
-    /* background-color: yellow; */
+    background-color: yellow;
     position: fixed; left: 47%; top: 36%;
     width: 100px;
     height: auto;
 }
 
 .animate{
-    /* background-color: yellow; */
+    background-color: yellow;
     position: fixed; left: 47%; top: 36%;
     width: 100px;
     height: auto;
@@ -467,3 +480,63 @@
     display: none;
 }
  
+/* profile page */
+div.avatar {
+    float: left;
+    width: 30%;
+}
+
+img.avatar {
+    display: block;
+    width: 150px;
+
+}
+.container_pr {
+    flex-direction: column;
+    min-height: 100vh;
+    box-sizing: content-box;
+    margin: auto;
+    width: 700px;
+    padding: 50px;
+    background: white;
+}
+
+.container_pr h1 {
+    margin: auto;
+    margin-bottom: 20px;
+    text-align: center;
+
+}
+
+.userinf {
+    width: 70%;
+    float: right;
+}
+
+/*LEADERBOARD*/
+
+.leadContent {
+    float: left;
+    margin-top: 16%;
+}
+
+.leadContent h2 {
+    font-size: 22px;
+}
+
+.leadContent p {
+    font-size: 16px;
+}
+
+.leadContent input {
+    margin-top: 4px;
+    margin-bottom:  10px;
+}
+
+.leadFoot {
+    height: 200px;
+    width: 160px;
+    float: right;
+    margin-top: 20%;
+    margin-right: 25%;
+}
