@@ -540,3 +540,10 @@ img.avatar {
     margin-top: 20%;
     margin-right: 25%;
 }
+
+/* cookie disclaimer */
+
+.cookiePopup {
+    background-color: aqua;
+    position: fixed;
+}

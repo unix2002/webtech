@@ -43,7 +43,7 @@ $average = "average footprint placeholder";
 
         <div class="container">
             <div class="form">
-                <p>Your footprint is:<br><?php echo $sum; ?> m3</p>
+                <p>Your footprint is:<br><?php echo $_COOKIE['sum']; ?> m3</p>
                 <br>
                 <p>The average footprint is:<br><?php echo $average; ?></p>
             </div>

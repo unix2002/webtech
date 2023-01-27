@@ -3,6 +3,19 @@
     $cookie_name = "sum";
     $cookie_value = 0;
     setcookie($cookie_name, $cookie_value, time() + 600);
+
+    function add_cookie($question, $val)
+    {
+        $new_val = $val + 1;
+        setcookie($question, $val);
+    }
+
+    $sum = 0;
+    function add_to_sum($value)
+    {
+        $sum = $sum + $value;
+           setcookie($cookie_name, $sum, time() + 600);
+    }
 ?>
 
 <html lang="en">
@@ -12,21 +25,6 @@
     <meta charset="UTF-8">
 
     <link rel="stylesheet" href="style.css">
-    <?php
-    $sum = 0;
-    function add_to_sum($value)
-    {
-        $sum = $sum + $value;
-   	setcookie($cookie_name, $sum, time() + 600);
-    }
-
-    function add_cookie($question, $val)
-	{
-		$new_val = $val + 1;
-		setcookie($question, $val);
-	}
-
-    ?>
 </head>
 
 <body>
@@ -161,7 +159,11 @@
                         <li><label for="q9a3"><input type="radio" name="q9" value="3" id="q9a3">Only paper and plastic</li>
                         <li><label for="q9a4"><input type="radio" name="q9" value="4" id="q9a4">Only glass</li>
                         <li><label for="q9a5"><input type="radio" name="q9" value="5" id="q9a5">I don't sort my trash</li>
-			<input type="submit" name="submit" value="Submit">
+
+                <!-- vragen:
+                - wat voor type brandstof gebruikt jouw auto?
+                -
+            -->
                     </ul>
                 </div>
 	</div>
