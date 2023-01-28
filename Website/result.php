@@ -2,9 +2,10 @@
 <html lang="en">
 
 <?php
-    $sum = $_COOKIE["sum"];
     $average = "average footprint placeholder";
 
+    require_once('footprintcalc.php');
+    $sum = result_footprint();
     function calc_sum()
     {
         $result = $_COOKIE['q3'] * 10;
