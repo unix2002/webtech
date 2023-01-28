@@ -53,6 +53,7 @@ background-color: transparent;
 .navBut {
     color: black;
     padding: 12px 44px;
+    margin-left: 40px;
     text-decoration: none;
     display: inline-block;
     font-size: 18px;
@@ -94,14 +95,15 @@ background-color: transparent;
     font-weight: 500;
     font-size: 18px;
     border-radius: 25px;
-    padding: 12px 44px;
+    padding: 12px 20px;
+    transition: 0.2s;
 }
 
 .pageLink:hover {
     color: #8a9a5b;
     background-color: white;
     border-radius: 25px;
-    padding: 12px 44px;
+    padding: 12px 20px;
 }
 
 /*Winkelwagen*/
@@ -203,7 +205,7 @@ background-color: transparent;
         font-size: 16px;
         font-weight: 400;
     }
-    
+
     .photo {
         width: 120px;
     }
@@ -479,7 +481,7 @@ background-color: transparent;
 .hidden {
     display: none;
 }
- 
+
 /* profile page */
 div.avatar {
     float: left;
@@ -511,6 +513,10 @@ img.avatar {
 .userinf {
     width: 70%;
     float: right;
+}
+
+.hidden {
+    display: none;
 }
 
 /*LEADERBOARD*/
@@ -546,4 +552,75 @@ img.avatar {
 .cookiePopup {
     background-color: aqua;
     position: fixed;
+}
+
+/*Winkelwagen*/
+#products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    margin: 0 auto;
+    max-width: 80%;
+}
+
+.product-div {
+    text-align: center;
+}
+
+.product-div img {
+    max-width: 100%;
+}
+
+.del_button {
+    color: white;
+    padding: 3px 3px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 25px;
+    border-top-right-radius: 0;
+    background-color: #d1062b;
+    transition: 0.2s;
+}
+
+.del_button:hover {
+    background-color: #c46072;
+}
+
+/* Define the grid container */
+#products-grid {
+  float: left;
+  position: fixed;
+  width: 50%;
+  height: 0%;
+  display: grid; /* Use the grid layout */
+  grid-template-columns: repeat(2, 1fr); /* 2 columns, each taking up 1 fraction of the available space */
+  grid-template-rows: repeat(2, 1fr); /* 2 rows, each taking up 1 fraction of the available space */
+  grid-gap: 0%; /* Add a gap of 10px between each grid cell */
+  margin-left: 0%; /* Add a margin of 10px to the left of the grid */
+}
+
+.winkelwagen {
+  display: inline-block;
+  float: right;
+  width: 30%;
+}
+
+/* Style the individual product cells */
+.product {
+  display: flex; /* Use the flex layout */
+  flex-direction: column; /* Stack the elements vertically */
+  align-items: center; /* Center the elements horizontally */
+  text-align: center; /* Center the text */
+  background-color: green;
+}
+
+
+#parent-container{
+  display: flex;
+  flex-direction: row;
+}
+.product-img {
+    width: 80%;
+    height: 80%;
 }

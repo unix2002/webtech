@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 	<head>
 		<title>Leaderboard</title>
@@ -25,7 +24,7 @@
         				event.preventDefault(); // prevent the form from submitting
         				$.ajax({
             					type: "POST", // use the POST method
-            					url: "/api/api_request.php", // the URL of the PHP script
+            					url: "./api/api_request.php", // the URL of the PHP script
             					data: $("#form").serialize(), // the form data
             					success: function(data) {
                 					// do something with the returned data
@@ -38,9 +37,9 @@
 			});
 
 		</script>
-		<?php
-		    include_once 'header_nieuw.php'
-		?>
+<?php
+    include_once 'header_nieuw.php'
+?>
 	</head>
 	<body>
     <div class="container">

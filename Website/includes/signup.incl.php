@@ -1,54 +1,53 @@
 <?php
-    include_once 'dbconnect.incl.php';
 
-    $name = $_POST["name"];
-    $surname = $_POST['surname'];
-    $birth = $_POST['birth'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    // $conf = mysql_real_escape_string($conn, $_POST['conf_password']);
-    $conf = $_POST['conf_password'];
+include_once 'dbconnect.incl.php';
 
-
-    if ($password != $conf) {
-        header("Location: ../signup.php?signup=failed_match");
-        exit();
-    }
-
-    $sql = "INSERT INTO users (id, first_name, last_name, birthday, email, passw)
-    VALUES (NULL, '$name', '$surname', '$birth', '$email', '$password');";
-
-    $sql_2 = "SELECT email FROM users;";
-    $result = mysqli_query($conn, $sql_2);
-    $resultCheck = mysqli_num_rows($result);
-
-    while ($row = mysqli_fetch_assoc($result)) {
-        if ($row['email'] == $email) {
-            session_start();
-            $_SESSION['email_temp'] = $email;
-            header("Location: ../login.php?signup=exist");
-            exit();
-        }
-    }
+$name = htmlspecialchars($_POST["name"]);
+$surname = htmlspecialchars($_POST['surname']);
+$birth = htmlspecialchars($_POST['birth']);
+$email = htmlspecialchars($_POST['email']);
+$password = htmlspecialchars($_POST['password']);
+$conf = htmlspecialchars($_POST['conf_password']);
 
 
-    $result2 = mysqli_query($conn, $sql);
+if ($password != $conf) {
+    header("Location: ../signup.php?signup=failed_match");
+    exit();
+}
 
-    if ( false===$result2 ) {
-    printf("error: %s\n", mysqli_error($conn));
-    }
-    else {
+$options = [
+    'cost' => 12,
+];
+$hashed_password = password_hash($password, PASSWORD_DEFAULT, $options);
+
+$sql = "INSERT INTO users (first_name, last_name, birthday, email, passw) VALUES (?, ?, ?, ?, ?)";
+
+$sql_2 = "SELECT email FROM users;";
+$result = mysqli_query($conn, $sql_2);
+$resultCheck = mysqli_num_rows($result);
+
+while ($row = mysqli_fetch_assoc($result)) {
+    if ($row['email'] == $email) {
         session_start();
         $_SESSION['email_temp'] = $email;
-        header("Location: ../login.php?signup=new");
+        header("Location: ../login.php?signup=exist");
         exit();
     }
-    // if (!mysqli_query($conn, $sql)) {
-    //     echo 'Error: ' . mysqli_error($conn);
-    //     header("Location: ../index.php?signup=failed");
-    // }
-    // else {
-    //     header("Location: ../index.php?signup=succes");
-    // }
+}
 
+
+$stmt = mysqli_prepare($conn, $sql);
+mysqli_stmt_bind_param($stmt, "sssss", $name, $surname, $birth, $email, $hashed_password);
+$result2 = mysqli_stmt_execute($stmt);
+
+if ( false===$result2 ) {
+    printf("error: %s\n", mysqli_error($conn));
+}
+else {
+    session_start();
+    $_SESSION['email_temp'] = $email;
+    header("Location: ../login.php?signup=new");
+}
+mysqli_stmt_close($stmt);
+exit();
 ?>

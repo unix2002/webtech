@@ -18,7 +18,8 @@
         <div class="content">
             <h1>Calculate your footprint</h1>
             <p>Discover your impact on the world in just a few minutes!</p>
-            <a class="button" href="quiz.php">Start Now</a>
+	    <a class="button" href="quiz.php">Start Now</a>
+	    <a class="button" href="winkelwagen.php">Winkelwagen testpagina</a>
         </div>
     </div>
 </body>

@@ -2,8 +2,14 @@
 <html lang="en">
 
 <?php
-$sum = $_COOKIE["sum"];
-$average = "average footprint placeholder";
+    $sum = $_COOKIE["sum"];
+    $average = "average footprint placeholder";
+
+    function calc_sum()
+    {
+        $result = $_COOKIE['q3'] * 10;
+        return $result;
+    }
 ?>
 
 <head>
@@ -43,7 +49,7 @@ $average = "average footprint placeholder";
 
         <div class="container">
             <div class="form">
-                <p>Your footprint is:<br><?php echo $_COOKIE['sum']; ?> m3</p>
+                <p>Your footprint is:<br><?php echo calc_sum(); ?> m3</p>
                 <br>
                 <p>The average footprint is:<br><?php echo $average; ?></p>
             </div>

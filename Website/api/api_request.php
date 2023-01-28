@@ -4,7 +4,7 @@ $country_code = null;
 $jsonString = file_get_contents('./country_codes.txt');
 $dataset = json_decode($jsonString, true);
 
-$countryName = $_POST['country'];
+$countryName = htmlspecialchars($_POST['country']);
 foreach ($dataset as $country) {
 	if ($country['countryName'] === $countryName) {
 		$country_code = $country['countryCode'];

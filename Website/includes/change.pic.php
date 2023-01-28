@@ -1,7 +1,7 @@
 <?php
     include_once 'dbconnect.incl.php';
     session_start();
-    $pic = $_POST['newUrl'];
+    $pic = $_GET['newUrl'];
     $em = $_SESSION['e-mail'];
 
     $sql = "UPDATE users SET picture='$pic' WHERE email='$em';";
@@ -28,3 +28,4 @@
     //     $row = mysqli_fetch_assoc($result);
     // }
 ?>
+

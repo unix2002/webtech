@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <?php
-    $cookie_name = "sum";
-    $cookie_value = 0;
-    setcookie($cookie_name, $cookie_value, time() + 600);
 
-    function add_cookie($question, $val)
+    function delete_sum_cookie()
     {
-        $new_val = $val + 1;
+        setcookie('sum', NULL, time() - 100);
+    }
+
+	function add_cookie($question, $val)
+	{
+        $new_val = $val;
         setcookie($question, $val);
     }
 
-    $sum = 0;
     function add_to_sum($value)
     {
-        $sum = $sum + $value;
-           setcookie($cookie_name, $sum, time() + 600);
+        $sum = $value;
+        if (isset($_COOKIE['sum']))
+		{
+            $sum = $_COOKIE['sum'] + $value;
+		}
+            setcookie('sum', $sum, time() + 600);
     }
 ?>
 
@@ -71,7 +76,7 @@
                 <div class="Q1">
                     <h3>How often do you eat animal-based products?</h3>
                     <ul class="options1">
-		            	<li><label for="q1a1"><input type="radio" id="q1a1" name="q1" value="1">Daily</label></li>
+			            <li><label for="q1a1"><input type="radio" id="q1a1" name="q1" value="1">Daily</label></li>
                         <li><label for="q1a2"><input type="radio" name="q1" value="2" id="q1a2">Often</label></li>
                         <li><label for="q1a3"><input type="radio" name="q1" value="3" id="q1a3">Sometime</label></li>
                         <li><label for="q1a4"><input type="radio" name="q1" value="4" id="q1a4">Never</label></li>
@@ -86,7 +91,7 @@
                         <li><label for="q2a4"><input type="radio" name="q2" value="4" id="q2a4">€50 or higher</label></li>
                     </ul>
                 </div>
-		<div class="Q3">
+		        <div class="Q3">
                     <h3>What is your fuel usage per week?</h3>
                     <ul class="options3">
                         <li><label for="q3a1"><input type="radio" name="q3" value="1" id="q3a1">1 litre - 10 litres</label></li>
@@ -159,11 +164,6 @@
                         <li><label for="q9a3"><input type="radio" name="q9" value="3" id="q9a3">Only paper and plastic</li>
                         <li><label for="q9a4"><input type="radio" name="q9" value="4" id="q9a4">Only glass</li>
                         <li><label for="q9a5"><input type="radio" name="q9" value="5" id="q9a5">I don't sort my trash</li>
-
-                <!-- vragen:
-                - wat voor type brandstof gebruikt jouw auto?
-                -
-            -->
                     </ul>
                 </div>
 	</div>
@@ -179,37 +179,32 @@
 
         // cookies misschien nodig voor resultpage
         } else if(isset($_POST['submit'])) {
-                $q1 = $_POST['q1'];
-		add_cookie('q1', $_POST['q1']);
-                $q2 = $_POST['q2'];
-		add_cookie('q2', $_POST['q2']);
-                $q3 = $_POST['q3'];
-		add_cookie('q3', $_POST['q3']);
-                $q4 = $_POST['q4'];
-		add_cookie('q4', $_POST['q4']);
-                $q5 = $_POST['q5'];
-		add_cookie('q5', $_POST['q5']);
-                $q6 = $_POST['q6'];
-		add_cookie('q6', $_POST['q6']);
-                $q7 = $_POST['q7'];
-		add_cookie('q7', $_POST['q7']);
 
-		echo "cookie1 = " . $_COOKIE['q1'];
-		echo "cookie2 = " . $_COOKIE['q2'];
-		echo "cookie3 = " . $_COOKIE['q3'];
-                echo "q1:" . $q1 . "\n";
+                $q1 = $_POST['q1'];
+	    	add_cookie('q1', $q1);
+                $q2 = $_POST['q2'];
+    		add_cookie('q2', $q2);
+                $q3 = $_POST['q3'];
+		    add_cookie('q3', $q3);
+                $q4 = $_POST['q4'];
+	    	add_cookie('q4', $q4);
+                $q5 = $_POST['q5'];
+    		add_cookie('q5', $q5);
+                $q6 = $_POST['q6'];
+		    add_cookie('q6', $q6);
+                $q7 = $_POST['q7'];
+	    	add_cookie('q7', $q7);
+
+            echo "q1:" . $q1 . "\n";
                 echo "q2:" . $q2 . "\n";
                 echo "q3:" . $q3 . "\n";
                 echo "q4:" . $q4 . "\n";
                 echo "q5:" . $q5 . "\n";
                 echo "q6:" . $q6 . "\n";
                 echo "q7:" . $q7 . "\n";
-		echo "all cookies = " . $_COOKIE;
-		print_r($_COOKIE);
-
             }
             ?>
-	<a class="quiz_button" href="result.php">Homepage</a>
+	<a class="quiz_button" href="result.php">Results</a>
     </div>
 </body>
 </html>
