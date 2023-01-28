@@ -2,7 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="style.css" />
-    <script src="./scripten/winkelwagen_script.js"></script> 
+    <script src="./scripten/winkelwagen_script.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 var currentPage = 1;
