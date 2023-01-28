@@ -1,0 +1,32 @@
+#products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    margin: 0 auto;
+    max-width: 80%;
+}
+
+.product-div {
+    text-align: center;
+}
+
+.product-div img {
+    max-width: 100%;
+}
+
+
+.del_button {
+    color: white;
+    padding: 3px 3px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 25px;
+    border-top-right-radius: 0;
+    background-color: #d1062b;
+    transition: 0.2s;
+}
+
+.del_button:hover {
+    background-color: #c46072;
+}
