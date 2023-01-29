@@ -544,17 +544,20 @@ img.avatar {
     position: fixed;
     color: black;
     font-size: 13px;
+    bottom: 0;
+    width: 100%;
 }
 .cookies_popup button{
     background-color: black;
     color: white;
     font-size: 13px;
+    border: 1px solid black;
 }
 
-.cookiePopup {
+/* .cookiePopup {
     background-color: aqua;
     position: fixed;
-}
+} */
 
 /*Winkelwagen*/
 #next_and_previous {
