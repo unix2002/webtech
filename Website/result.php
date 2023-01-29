@@ -49,6 +49,10 @@
             </div>
             <script src="mobile.js"></script>
         </nav>
+        <div class="cookies_popup">
+            please click the button to accept cookies
+            <button>Accept</button>
+        </div>
 
         <div class="container">
             <div class="form">
