@@ -6,13 +6,6 @@
 
     require_once('footprintcalc.php');
     $sum = result_footprint();
-
-    // currently a placeholder
-    // function calc_sum()
-    // {
-    //     $result = $_COOKIE['q3'] * 10;
-    //     return $result;
-    // }
 ?>
 
 <head>
@@ -56,7 +49,7 @@
 
         <div class="container">
             <div class="form">
-                <p>Your footprint is:<br><?php echo calc_sum(); ?> m3</p>
+                <p>Your footprint is:<br><?php echo $sum; ?> m3</p>
                 <br>
                 <p>The average footprint is:<br><?php echo $average; ?></p>
             </div>
@@ -92,10 +85,6 @@
 
             <button class="quiz_button" onclick="animation_player()">See my result</button> -->
         <!-- </div> -->
-        <input type="submit" name="submit" value="Submit">
-        <?php
-            echo "cookie = " . $_COOKIE['q1'];
-        ?>
-    </div>
+         </div>
 </body>
 </html>
