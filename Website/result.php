@@ -6,11 +6,13 @@
 
     require_once('footprintcalc.php');
     $sum = result_footprint();
-    function calc_sum()
-    {
-        $result = $_COOKIE['q3'] * 10;
-        return $result;
-    }
+
+    // currently a placeholder
+    // function calc_sum()
+    // {
+    //     $result = $_COOKIE['q3'] * 10;
+    //     return $result;
+    // }
 ?>
 
 <head>
@@ -29,7 +31,7 @@
 <?php
     include_once 'header_nieuw.php';
 
-    echo "cookies are: " . $_COOKIE['q1'];
+    // echo "cookies are: " . $_COOKIE['q1'];
 ?>
     <header class="header">
         <nav class="bar">

@@ -549,6 +549,22 @@ img.avatar {
 
 /* cookie disclaimer */
 
+.popup{
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.popup .popuptext{
+    visibility: hidden;
+    width: 200px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+}
+
 .cookiePopup {
     background-color: aqua;
     position: fixed;
