@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>Leaderboard</title>
@@ -18,6 +19,11 @@
 				foot.style.height = sizeMultiplier * foot.offsetHeight + "px";
 				foot.style.width = sizeMultiplier * foot.offsetWidth + "px";
 			}
+            function growFoot_test(sizeMultiplier)
+            {
+                document.getElementById("foot").style.height = sizeMultiplier * foot.offsetHeight + "px";
+                document.getElementById("foot").style.width = sizeMultiplier * foot.offsetWidth + "px";
+            }
 
 			$(document).ready(function() {
     				$("#form").submit(function(event) {
@@ -30,16 +36,26 @@
                 					// do something with the returned data
                 					$("#result").html(data);
 							resetFoot();
-							growFoot(data);
+							// growFoot(data);
+                            growFoot_test(data);
             					}
         				});
     				});
 			});
 
 		</script>
-<?php
-    include_once 'header_nieuw.php'
-?>
+	<?php
+        include_once 'header_nieuw.php'
+	?>
+    <style>
+        .leadFoot {
+            height: 200px;
+            width: 160px;
+            float: right;
+            margin-top: 20%;
+            margin-right: 25%;
+        }
+    </style>
 	</head>
 	<body>
     <div class="container">
@@ -47,7 +63,7 @@
             <h1>Leaderboard</h1>
             <form id="form" action="https://webtech-in16.webtech-uva.nl/leaderboard.php" method="post">
             <!--label for="country">Enter the country name:</label-->
-            <select class="button" name="country" id="data_list">
+            <select class="country_list" name="country" id="data_list">
                 <option value="Armenia">Armenia</option>
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Albania">Albania</option>
@@ -241,13 +257,13 @@
                 <option value="China">China</option>
             </select>
             <br>
-            <input class="button" type="submit" value="Submit">
+            <input class="lead_but" type="submit" value="Submit">
             </form>
-                <h2>Results</h2>
-            <a id="result"></a><p>average global hectare per person.</p>
+            <h2>Results</h2>
+            <p><a id="result"></a> average global hectare per person.</p>
             <p> A global hectare is the planetary average amount of CO2 being absorbed per hectare of land.</p>
 	    </div>
-		<img class="leadFoot" src="./img/footprint.png"></img>
+		<img class="leadFoot" id="foot" src="./img/footprint.png"></img>
     </div>
     </body>
 </html>
