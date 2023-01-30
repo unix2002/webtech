@@ -1,3 +1,8 @@
+body {
+    background-image: url('img/bloedmooie_achtergrond.jpg'); /* set the background image */
+    background-repeat: no-repeat; /* do not repeat the image */
+    background-size: cover; /* stretch the image to cover the entire element */
+  }
 
 * {
     margin: 0;
@@ -204,10 +209,6 @@ background-color: transparent;
     .photo {
         width: 120px;
     }
-
-    .homeIMG {
-        display: none;
-    }
 }
 
 /*HOMEPAGE*/
@@ -219,22 +220,15 @@ background-color: transparent;
 }
 
 .content h1 {
-    color: black;
+    font-weight: 400;
     font-size: 60px;
     margin-bottom: 6px;
 }
 
 .content p {
-    color: black;
     margin-bottom: 12px;
-    font-size: 16px;
-}
-
-.homeIMG {
-    margin-top: 92px;
-    margin-right: 100px;
-    width: 32%;
-    float: right;
+    font-size: 50px;
+    font-weight: 500;
 }
 
 /*ABOUT US PAGE*/
@@ -418,14 +412,11 @@ background-color: transparent;
     position: fixed;
     margin-left: auto;
     margin-right: auto;
-    /* margin-top: auto; */
     width: 100px;
     height: auto;
 }
 
 .result_img_user{
-    /* background-color is for testing purposes */
-    background-color: yellow;
     position: fixed; left: 47%; top: 36%;
     width: 100px;
     height: auto;
@@ -453,8 +444,6 @@ background-color: transparent;
     }
 }
 
-
-
 /* Login error afhandeling */
 
 .err_message {
@@ -478,7 +467,6 @@ div.avatar {
 img.avatar {
     display: block;
     width: 150px;
-
 }
 .container_pr {
     flex-direction: column;
@@ -494,7 +482,6 @@ img.avatar {
     margin: auto;
     margin-bottom: 20px;
     text-align: center;
-
 }
 
 .userinf {
@@ -554,11 +541,6 @@ img.avatar {
     border: 1px solid black;
 }
 
-/* .cookiePopup {
-    background-color: aqua;
-    position: fixed;
-} */
-
 /*Winkelwagen*/
 #next_and_previous {
   /*display: inline-block;*/
@@ -583,7 +565,6 @@ img.avatar {
 #prev:hover {
   opacity: 0.7;
 }
-
 
 .product-div img {
     max-width: 100%;
@@ -682,7 +663,7 @@ img.avatar {
   margin-top: 10%;
 }
 
-.change_pw {
+.change_pw .signup .login{
   background-color: #8a9a5b;
   width: 400px;
   padding-top: 24px;
@@ -707,13 +688,17 @@ img.avatar {
     margin-top: 12px;
 }
 
-.change_pw_submit:hover {
-    background-color: red;
+.profile_but {
+    margin: 4px;
+    background-color: #8a9a5b;
+    padding: 8px;
+    border-radius: 18px;
 }
 
-.profile_but {
- margin: 4px;
- background-color: #8a9a5b;
- padding: 8px;
- border-radius: 18px;
+.login_button {
+    background-color: #8a9a5b;
+}
+
+  .login_button:hover, .change_pw_submit:hover, .profile_but:hover {
+    background-color: #8a9a5bb0;
 }

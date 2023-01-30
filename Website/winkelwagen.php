@@ -56,30 +56,30 @@ var search_data = null;
 <?php
     include_once 'header_nieuw.php';
 ?>
+
   </head>
-
-
   <body>
 
-    <form id="form" method="post" action="https://webtech-in16.webtech-uva.nl/test_sql/testsql6.php">
-      <label for="product_name"><h1>Enter product name:</label>
-      <input type="text" id="product_name" name="product_name"/>
-      <input class="button" type="submit" value="Search products"/></h1>
-    </form>
-
-    <div id="next_and_previous">
-	<!--button id="prev" class="button">previous</button-->
-	<img width="10%" src="img/feet_buttons/prev.png" id="prev"></img>
-	<img width="10%" src="img/feet_buttons/next.png" id="next"></img>
-    </div>
-
-    <div class="winkelwagen">
-        <h1>Selectie</h1>
+   <div class="winkelwagen">
+	<h1>Selectie:</h1>
         <ul  id="selectie">
         </ul>
-	<!--button class="button" id="done-button">I'm done shopping</button-->
 	<img width="30%" id="done-button" src="img/feet_buttons/done.png"></img>
     </div>
+
+
+    <form id="form" method="post" action="https://webtech-in16.webtech-uva.nl/test_sql/testsql6.php">
+      	<div id="search-button-container"><h1 id="product-name-header">
+      		<label for="product_name">Enter product name:</label>
+      		<input type="text" id="product_name" name="product_name"/>
+		<input type="image" name="submit" id="search-button" style="padding-left: 3%;"  src="img/feet_buttons/search.png" width="17%" value="Search products"/>
+	</h1></div>
+    </form>
+    <div id="next_and_previous">
+	<img src="img/feet_buttons/prev.png" id="prev"></img>
+	<img src="img/feet_buttons/next.png" id="next"></img>
+    </div>
+
     <script>
   	var doneButton = document.getElementById("done-button");
   	doneButton.addEventListener("click", function() {
@@ -90,7 +90,10 @@ var search_data = null;
       			var itemValue = items[i].getAttribute("data-value");
       			total += parseFloat(itemValue);
     		}
-    		alert("Total value: " + total);
+		alert("Total value: " + total);
+document.cookie = "winkelwagen=" + total + "; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/; sameSite=none; secure; ";
+//var expires = "expires=" + new Date().toUTCString();
+//document.cookie = "winkelwagen=" + total + ";" + expires + ";path=/;sameSite=none;secure";
   	});
    </script>
 

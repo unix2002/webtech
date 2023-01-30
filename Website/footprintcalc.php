@@ -1,5 +1,23 @@
 <?php
 
+function winkelwagen_result()
+{
+
+}
+
+function berekening_joseph()
+{
+    $var
+    $d;
+    // kg uitstoot pp per jaar
+    $uitstoot_pp;
+    // opname per gha per jaar
+    $opname;
+    // ecologische voetafdruk ingha pp per jaar
+    $afdruk;
+    $uitstoot_pp = $var + ((365 * $uitstoot_pp) / $d)
+}
+
 function result_footprint()
 {
     $result = 0;
@@ -12,7 +30,7 @@ function result_footprint()
     $power_emmission = 10;
     // calc from food; foodsum to be determined.
 //    $food_emmission = $_COOKIE['food_sum'];
-      $food_emmission = 0;
+    $food_emmission = 0;
 
     $result = $food_emmission + $fuel_emmission + $power_emmission;
 
