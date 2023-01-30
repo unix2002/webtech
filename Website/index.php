@@ -14,7 +14,6 @@
     include_once 'header_nieuw.php';
 ?>
     <div class="container">
-        <img class="homeIMG" src="/img/pngwing.com.png">
         <div class="content">
             <h1>Calculate your footprint</h1>
             <p>Discover your impact on the world in just a few minutes!</p>

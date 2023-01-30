@@ -143,18 +143,18 @@
 
         } else if(isset($_POST['submit'])) {
             $q1 = $_POST['q1'];
-            add_cookie('q1', $q1);
             $q2 = $_POST['q2'];
-            add_cookie('q2', $q2);
             $q3 = $_POST['q3'];
-            add_cookie('q3', $q3);
             $q4 = $_POST['q4'];
-            add_cookie('q4', $q4);
             $q5 = $_POST['q5'];
-            add_cookie('q5', $q5);
             $q6 = $_POST['q6'];
-            add_cookie('q6', $q6);
             $q7 = $_POST['q7'];
+            add_cookie('q1', $q1);
+            add_cookie('q2', $q2);
+            add_cookie('q3', $q3);
+            add_cookie('q4', $q4);
+            add_cookie('q5', $q5);
+            add_cookie('q6', $q6);
             add_cookie('q7', $q7);
 
 

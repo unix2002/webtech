@@ -2,7 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="style.css" />
-    <script src="./scripten/winkelwagen_script.js"></script>
+    <script src="./scripten/winkelwagen_script.js"></script> 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 var currentPage = 1;
@@ -81,21 +81,21 @@ var search_data = null;
     </div>
 
     <script>
-		var doneButton = document.getElementById("done-button");
-		doneButton.addEventListener("click", function() {
-		var shoppingList = document.getElementById("selectie");
-		var items = shoppingList.getElementsByTagName("li");
-		var total = 0;
-		for (var i = 0; i < items.length; i++) {
-			var itemValue = items[i].getAttribute("data-value");
-			total += parseFloat(itemValue);
-		}
+  	var doneButton = document.getElementById("done-button");
+  	doneButton.addEventListener("click", function() {
+    		var shoppingList = document.getElementById("selectie");
+    		var items = shoppingList.getElementsByTagName("li");
+    		var total = 0;
+    		for (var i = 0; i < items.length; i++) {
+      			var itemValue = items[i].getAttribute("data-value");
+      			total += parseFloat(itemValue);
+    		}
 		alert("Total value: " + total);
-		document.cookie = "winkelwagen=" + total + "; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/; sameSite=none; secure; ";
+document.cookie = "winkelwagen=" + total + "; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/; sameSite=none; secure; ";
 //var expires = "expires=" + new Date().toUTCString();
 //document.cookie = "winkelwagen=" + total + ";" + expires + ";path=/;sameSite=none;secure";
-  		});
-	</script>
+  	});
+   </script>
 
-	</body>
+  </body>
 </html>
