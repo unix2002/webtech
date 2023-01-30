@@ -24,7 +24,7 @@ while(i != num_of_questions + 1)
     var cookie_name = `q$i`;
     var id = `tips_q$i`;
 
-    var answer = document.getElementById(id).children;
+    var answer = document.getElementsByClassName(id).children;
     answer.item[(get_cookie(cookie_name))].style.display = "block";
     i = i + 1;
 }

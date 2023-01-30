@@ -1,9 +1,3 @@
-body {
-    background-image: url('img/bloedmooie_achtergrond.jpg'); /* set the background image */
-    background-repeat: no-repeat; /* do not repeat the image */
-    background-size: cover; /* stretch the image to cover the entire element */
-  }
-
 * {
     margin: 0;
     padding: 0;
@@ -11,7 +5,13 @@ body {
     box-sizing: border-box;
 }
 
-label {
+body {
+  background-image: url("achtergrond.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+label{
 display: fixed;
 padding-right: 50px;
 background-color: transparent;
@@ -156,7 +156,7 @@ background-color: transparent;
         margin: 40px 0;
     }
 
-    .login {
+    .login_but, .profile_but {
         color: black;
         padding: 12px 44px;
         text-decoration: none;
@@ -168,13 +168,14 @@ background-color: transparent;
         transition: 0.2s;
     }
 
-    .login:hover {
+    .login_but:hover, .profile_but:hover {
         background-color: rgba(138, 154, 91, 0.8);
     }
 
     .hamburgerMenu {
         cursor: pointer;
         display: block;
+	z-index: 1;
     }
 
     .hamburgerMenu.active .hamburgerBar:nth-child(2) {
@@ -209,31 +210,46 @@ background-color: transparent;
     .photo {
         width: 120px;
     }
+
+    .homeIMG {
+        display: none;
+    }
 }
 
 /*HOMEPAGE*/
 
 .content {
     max-width: 650px;
-    margin-top: 12%;
+    margin-top: 10%;
     float: left;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 30px;
+    border-radius: 30px;
 }
 
 .content h1 {
-    font-weight: 400;
-    font-size: 60px;
+    color: black;
+    font-size: 72px;
     margin-bottom: 6px;
 }
 
 .content p {
+    color: white;
+    font-weight: 600;
     margin-bottom: 12px;
-    font-size: 50px;
-    font-weight: 500;
+    font-size: 20px;
+}
+
+.homeIMG {
+    margin-top: 92px;
+    margin-right: 100px;
+    width: 32%;
+    float: right;
 }
 
 /*ABOUT US PAGE*/
 
-.about_us h1 {
+\.about_us h1 {
     margin-top: 4%;
     color: black;
     font-size: 60px;
@@ -248,6 +264,7 @@ background-color: transparent;
     transition: 0.4s;
     float: left;
     padding: 50px;
+    background-color: white;
 }
 
 .card:hover {
@@ -387,7 +404,20 @@ background-color: transparent;
     border-radius: 5px;
 }
 
+.tips_q1 .tips_q2 .tips_q3 .tips_q4 .tips_q5 .tips_q6 .tips_q7 .tips_q8 .tips_q9
+{
+    display: none;
+}
+
 .result_text{
+    /* color: black; */
+    /* background-color: #8a9a5b; */
+    /* position: fixed; top: 50%; left: 25%;
+    margin: auto;
+    text-align: center;
+    width: 50%; */
+    /* border is for testing purposes */
+    /* border: 5px dotted black; */
     color: black;
     margin: 20px auto;
     background-color: #8a9a5b;
@@ -412,11 +442,14 @@ background-color: transparent;
     position: fixed;
     margin-left: auto;
     margin-right: auto;
+    /* margin-top: auto; */
     width: 100px;
     height: auto;
 }
 
 .result_img_user{
+    /* background-color is for testing purposes */
+    background-color: yellow;
     position: fixed; left: 47%; top: 36%;
     width: 100px;
     height: auto;
@@ -444,6 +477,8 @@ background-color: transparent;
     }
 }
 
+
+
 /* Login error afhandeling */
 
 .err_message {
@@ -467,21 +502,26 @@ div.avatar {
 img.avatar {
     display: block;
     width: 150px;
+
 }
 .container_pr {
     flex-direction: column;
-    min-height: 100vh;
     box-sizing: content-box;
     margin: auto;
     width: 700px;
     padding: 50px;
-    background: white;
+    background: rgba(255, 255, 255, 0.8);
+    background: #8a9a5b;
+    min-height: 60vh;
+    margin-top: 4%;
+    border-radius: 18px;
 }
 
 .container_pr h1 {
     margin: auto;
     margin-bottom: 20px;
     text-align: center;
+
 }
 
 .userinf {
@@ -498,6 +538,9 @@ img.avatar {
 .leadContent {
     float: left;
     margin-top: 16%;
+    background: #8a9a5b;
+    padding: 18px;
+    border-radius: 16px;
 }
 
 .leadContent h2 {
@@ -510,35 +553,22 @@ img.avatar {
 
 .leadContent input {
     margin-top: 4px;
-    margin-bottom:  10px;
+    margin-bottom: 10px;
 }
 
-/* .leadFoot {
-    height: 200px;
-    width: 160px;
-    float: right;
-    margin-top: 20%;
-    margin-right: 25%;
-} */
+.country_list {
+  height: 42px;
+  width: 90%;
+  margin-top: 4px;
+  position: relative;
+}
+
+
 
 /* cookie disclaimer */
-
-/* https://monsterlessons-academy.com/posts/cookie-consent-popup-cookie-banner-examples-with-html-css-javascript */
-
-.cookies_popup{
-    background-color: white;
-    text-align: center;
+.cookiePopup {
+    background-color: aqua;
     position: fixed;
-    color: black;
-    font-size: 13px;
-    bottom: 0;
-    width: 100%;
-}
-.cookies_popup button{
-    background-color: black;
-    color: white;
-    font-size: 13px;
-    border: 1px solid black;
 }
 
 /*Winkelwagen*/
@@ -566,6 +596,7 @@ img.avatar {
   opacity: 0.7;
 }
 
+
 .product-div img {
     max-width: 100%;
     text-align: center;
@@ -590,6 +621,7 @@ img.avatar {
   float: left;
   position: absolute;
   width: 75%;
+  top: 30%;
   height: 0%;
   display: grid; /* Use the grid layout */
   grid-template-columns: repeat(2, 1fr); /* 2 columns, each taking up 1 fraction of the available space */
@@ -615,7 +647,8 @@ img.avatar {
   align-items: center; /* Center the elements horizontally */
   text-align: center; /* Center the text */
   max-width: 90%;
-  max-height: 90%; padding-top: 2%;
+  max-height: 90%;
+  padding-top: 2%;
 }
 
 #grid-item:hover {
@@ -658,47 +691,83 @@ img.avatar {
   margin-left: 10%;
 }
 
-/*LOGIN/SIGN UP/CHANGE PW*/
+/*LOGIN/SIGN UP/CHANGE PASSWORD*/
+
 .login_sign_form {
-  margin-top: 10%;
+  margin-top: 8%;
 }
 
-.change_pw .signup .login{
+.login, .signup, .change_pw {
   background-color: #8a9a5b;
-  width: 400px;
-  padding-top: 24px;
-  padding-bottom: 20px;
-  padding-left: 15px;
-  padding-right: 15px;
+  width: 22%;
+  padding: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
   border-radius: 18px;
 }
 
+.login h1, .signup h1 {
+ font-size: 32px;
+ margin-bottom: 6px;
+}
+
+.login .field {
+ height: 42px;
+ width: 100%;
+ margin-top: 2%;
+ position: relative;
+}
+
+.field input {
+  font-size: 18px;
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.avatar_field {
+  position: relative;
+  margin-top: 4%;
+  width: 80%;
+  height: 32px;
+  margin-bottom: 4px;
+}
+
+.avatar_field input {
+  font-size: 14px;
+  height: 100%;
+  width: 80%;
+  outline: none;
+}
+
 .change_pw h4 {
-  font-size: 22px;
-  margin-bottom: 12px;
+  font-size: 24px;
+  margin-bottom: 6px;
 }
 
-.change_pw_submit {
-    color: black;
-    padding: 12px;
-    font-size: 12px;
-    border-radius: 20px;
-    background-color: white;
-    transition: 0.2s;
-    margin-top: 12px;
+.change_pw_submit, .signup_submit, .login_button, .profile_buttons, .lead_but {
+  background-color: white;
+  padding: 12px;
+  margin-bottom: 4px;
+  border-radius: 18px;
+  margin-top: 2px;
 }
 
-.profile_but {
-    margin: 4px;
-    background-color: #8a9a5b;
-    padding: 8px;
-    border-radius: 18px;
+.profile_buttons:hover, .signup_submit:hover, .change_pw_submit:hover, .login_button:hover, .lead_but:hover {
+  opacity: 0.8;
 }
 
-.login_button {
-    background-color: #8a9a5b;
+/* QUIZ SELECTIE */
+#dag_vraag_div {
+
+  z-index: 1;
 }
 
-  .login_button:hover, .change_pw_submit:hover, .profile_but:hover {
-    background-color: #8a9a5bb0;
+#verstop_winkelwagen {
+  z-index: -1;
+  position: absolute;
+  top: 13%;
+  left: 0;
+  right: 0;
 }
