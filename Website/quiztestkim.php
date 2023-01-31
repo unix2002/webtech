@@ -1,138 +1,110 @@
 <!DOCTYPE html>
-<?php
-
-	function add_cookie($question, $val)
-	{
-        $new_val = $val;
-        setcookie($question, $val, time() + 3600);
-    }
-
-    $current_question
-?>
-
 <html lang="en">
+
+<?php
+    function add_cookie($question, $val)
+    {
+        $new_val = $val;
+        setcookie($question, $val);
+    }
+?>
 
 <head>
     <title>MyEcology</title>
     <meta charset="UTF-8">
-
     <link rel="stylesheet" href="style.css">
+    <!-- Deze include is nodig voor het ajax request-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="./result.js"></script> -->
 
-    <script>
-        var currentQuestion = 1;
-        function previous_question(current_question)
-        {
-            // alert(current_question);
-            var previous_q = `options${current_question - 1}`;
-            var class_name = `options${current_question}`;
-
-            var current_q = document.querySelector(`.Q${current_question}`);
-            var prev_q = document.querySelector(`.Q${current_question - 1}`);
-
-            prev_q.style.display = "block";
-            current_q.style.display = "none";
-        }
-        function next_question(current_question)
-        {
-            var next_q = `options${current_question + 1}`;
-            var class_name = `options${current_question}`;
-
-            var current_q = document.querySelector(`.Q${current_question}`);
-            var next_q = document.querySelector(`.Q${current_question + 1}`);
-
-            next_q.style.display = "block";
-            current_q.style.display = "none";
-        }
-
-        $(document).ready(function() {
-	    $("input[type='radio']:checked".val()).click(function(){
-		    currentQuestion++;
-            event.preventDefault(); // prevent the form from submitting
-        				$.ajax({
-            					type: "POST", // use the POST method
-            					url: "./api/api_request.php", // the URL of the PHP script
-            					data: $("#form").serialize(), // the form data
-                    success: function(data) {
-                        // alert("next question + " + currentQuestion);
-                        // next_question(currentQuestion + 1);
-                        // document.cookie = `q${currentQuestion}` + total + "; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/; sameSite=none; secure; ";
-		            }
-        	    });
-            });
-
-        $("#next").click(function(){
-        currentQuestion++;
-        event.preventDefault(); // prevent the form from submitting
-                    $.ajax({
-                            type: "POST", // use the POST method
-                            url: "./api/api_request.php", // the URL of the PHP script
-                            data: $("#form").serialize(), // the form data
-                success: function(data) {
-                    // alert("next question + " + currentQuestion);
-                    next_question(currentQuestion + 1);
-                }
-            });
-        });
-
-	    $("#prev").click(function(event){
-		if(currentQuestion > 1) {
-			currentQuestion--;
-			event.preventDefault(); // prevent the form from submitting
-        				$.ajax({
-            					type: "POST", // use the POST method
-            					url: "./api/api_request.php", // the URL of the PHP script
-            					data: $("#form").serialize(), // the form data
-                    success: function(data) {
-			            // $("#result").html(search_data);
-			            // toon(search_data);
-                        previous_question(currentQuestion);
-		            }
-        	    });
-		}
-	    });
-	});
-    </script>
+<?php
+    include_once 'header_nieuw.php';
+?>
 </head>
-
 <body>
     <div class="container">
-        <?php
-            include_once 'header_nieuw.php';
-        ?>
+        <!-- div en dan end div? -->
+	<!-- <button onclick="location.href='https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwixp5q00vH8AhUMH-wKHQdZCP0QwqsBegQIBxAB&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DdQw4w9WgXcQ&usg=AOvVaw0aHtehaphMhOCAkCydRLZU';" type="button">
         <div class="content">
         </div>
-        <?php
-        if(!isset($_POST["submit"])) {
-        ?>
+	</button> -->
 
-<script>
+	<script>
 		var TOTAL_CO2 = null;
+        var ANSWERS = [];
 		function q_add(id, c) {
 			TOTAL_CO2 += c;
+            		var RESULT = 0;
+            ANSWERS[Number(id.charAt(1)) - 1] = Number(id.charAt(3));
 			// 7 komt overeen met het aantal vragen.
 			if (id.charAt(1) == "9") {
 				calc_done();
+                		last();
+			 	return;
 			}
+			next(Number(id.charAt(1)));
 		}
-
 		function calc_done() {
 			// Verwerken resultaat.
 			url = window.location.href;
 			const params = new URLSearchParams(url.split("?")[1]);
 			const total_selection = parseFloat(params.get("total"));
 			TOTAL = total_selection + TOTAL_CO2;
-			alert("total: " + TOTAL);
+			//alert("total: " + TOTAL);
+			document.getElementById("result").innerHTML = TOTAL + " kg CO2";
+
+        		event.preventDefault(); // prevent the form from submitting
+        		$.ajax({
+            			type: "POST", // use the POST method
+            			url: "./scripten/quiz_ajax.php", // the URL of the PHP script
+            			data: {"total":TOTAL}, // the form data
+            			success: function(data) {
+					// do something with the returned data
+            			}
+			});
+
 		}
 
-		function prev() {
-			alert("prev");
+		function prev(vraag_nummer) {
+			// getal
+            var current_q = document.querySelector(`.Q${vraag_nummer}`);
+            var prev_q = document.querySelector(`.Q${vraag_nummer - 1}`);
+
+            prev_q.style.display = "block";
+            current_q.style.display = "none";
 		}
-		function make_cookie(currentQuestion, value)
+
+		function next(vraag_nummer) {
+			// nummer is char
+            var current_q = document.querySelector(`.Q${vraag_nummer}`);
+            var next_q = document.querySelector(`.Q${vraag_nummer + 1}`);
+
+            next_q.style.display = "block";
+            current_q.style.display = "none";
+		}
+        function last()
         {
-            document.cookie = `q${currentQuestion}` + value + "; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/; sameSite=none; secure; ";
+            var current_q = document.querySelector(`.Q9`);
+            var next_q = document.querySelector(`.last`);
+
+            next_q.style.display = "block";
+            current_q.style.display = "none";
+
+            for (var i = 0; i < 9; i++)
+            {
+                var id = `tips_q${i + 1}`;
+		alert("id = " + id);
+                alert("answers[i] = " + ANSWERS[i]);
+              var question = document.getElementById(id);
+
+                question.children[ANSWERS[i] + 1].removeAttribute("hidden");
+            }
         }
-        make_cookie(1, 1);
+
+		function make_cookie(currentQuestion, value)
+		{
+			document.cookie = `q${currentQuestion}` + value + "; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/; sameSite=none; secure; ";
+		}
 	</script>
 
         <div class="form">
@@ -140,208 +112,304 @@
                 Source:
                 https://footprint.wwf.org.uk/#/
                 https://www.footprintcalculator.org/home/en
-            -->
-            <form action="quiztestkim.php" method="post" id="form">
+	    -->
                 <div class="Q1">
-                    <h3>How many km do you drive in a year?</h3>
+                    <h3>How far do you drive in a year?</h3>
                     <ul class="options1">
-			            <li><label for="q1a1"><input type="radio" id="q1a1" name="q1" value="1">0 km</label></li>
-                        <li><label for="q1a2"><input type="radio" name="q1" value="2" id="q1a2">0 - 5000 km</label></li>
-                        <li><label for="q1a3"><input type="radio" name="q1" value="3" id="q1a3">5000 - 10000 km</label></li>
-                        <li><label for="q1a4"><input type="radio" name="q1" value="4" id="q1a4">10000 - 15000 km</label></li>
+		            	<li onclick="q_add('q1a1', 0); make_cookie(1, 1);">I don't have/ use a car</li>
+                        <li onclick="q_add('q1a2', 350); make_cookie(1, 2);">0 - 5000 km</li>
+                        <li onclick="q_add('q1a3', 1050); make_cookie(1, 3);">5000 - 10000 km</li>
+			            <li onclick="q_add('q1a4', 1750); make_cookie(1, 4);">10000 - 15000 km</li>
                     </ul>
                 </div>
                 <div class="Q2">
-                    <h3>How many km do you fly in a year?</h3>
+                    <h3>How much do you fly in a year?</h3>
                     <ul class="options2">
-                        <li><label for="q2a1"><input type="radio" name="q2" value="1" id="q2a1">0 km</label></li>
-                        <li><label for="q2a2"><input type="radio" name="q2" value="2" id="q2a2">500 - 1000 km</label></li>
-                        <li><label for="q2a3"><input type="radio" name="q2" value="3" id="q2a3">1000- 1500 km</label></li>
-                        <li><label for="q2a4"><input type="radio" name="q2" value="4" id="q2a4">1500 - 2000 km</label></li>
-                        <li><label for="q2a5"><input type="radio" name="q2" value="5" id="q2a5">2000 - 2500 km</label></li>
-                        <li><label for="q2a6"><input type="radio" name="q2" value="6" id="q2a6">2500 - 3000 km</label></li>
+                        <li onclick="q_add('q2a1', 0); make_cookie(2, 1);">I don't fly</li>
+                        <li onclick="q_add('q2a2', 213.75); make_cookie(2, 2);">500 - 1000 km</li>
+                        <li onclick="q_add('q2a3', 356.25); make_cookie(2, 3);">1000 - 1500 km</li>
+			            <li onclick="q_add('q2a4', 498.75); make_cookie(2, 4);">1500 - 2000 km</li>
+                        <li onclick="q_add('q2a4', 498.75); make_cookie(2, 4);">2000 - 2500 km</li>
+                        <li onclick="q_add('q2a4', 498.75); make_cookie(2, 4);">2500 - 3000 km</li>
+			            <a onclick="prev(2)"><img src="img/feet_buttons/prev.png" class="prev" id="prev2"></img></a>
                     </ul>
                 </div>
 		        <div class="Q3">
                     <h3>How much electricity do you use in a year?</h3>
                     <ul class="options3">
-                        <li><label for="q3a1"><input type="radio" name="q3" value="1" id="q3a1">I don't know.</label></li>
-                        <li><label for="q3a2"><input type="radio" name="q3" value="2" id="q3a2">1000 - 1500 kWh</label></li>
-                        <li><label for="q3a3"><input type="radio" name="q3" value="3" id="q3a3">1500 - 2000 kWh</label></li>
-                        <li><label for="q3a4"><input type="radio" name="q3" value="4" id="q3a4">2000 - 2500 kWh</label></li>
-                        <li><label for="q3a5"><input type="radio" name="q3" value="5" id="q3a5">2500 - 3000 kWh</label></li>
-                        <li><label for="q3a6"><input type="radio" name="q3" value="6" id="q3a6">3000 - 3500 kWh</label></li>
-                        <li><label for="q3a7"><input type="radio" name="q3" value="7" id="q3a7">3500 - 4000 kWh</label></li>
-                        <li><label for="q3a8"><input type="radio" name="q3" value="8" id="q3a8">4000 +</label></li>
+                        <li onclick="q_add('q3a1', 1882.1); make_cookie(3, 1);">I don't know</li>
+                        <li onclick="q_add('q3a2', 811.25); make_cookie(3, 2);">1000 - 1500 kWh</li>
+                        <li onclick="q_add('q3a3', 1135.75); make_cookie(3, 3);">1500 - 2000 kWh</li>
+                        <li onclick="q_add('q3a4', 1460.25); make_cookie(3, 4);">2000 - 2500 kWh</li>
+                        <li onclick="q_add('q3a5', 1784.75); make_cookie(3, 5);">2500 - 3000 kWh</li>
+                        <li onclick="q_add('q3a6', 2109.25); make_cookie(3, 6);">3000 - 3500 kWh</li>
+                        <li onclick="q_add('q3a7', 2433.75); make_cookie(3, 7);">3500 - 4000 kWh</li>
+                        <li onclick="q_add('q3a8', 2758.25); make_cookie(3, 8);">>4000 kWh</li>
+			            <a onclick="prev(3)"><img src="img/feet_buttons/prev.png" class="prev" id="prev3"></img></a>
                     </ul>
                 </div>
                 <div class="Q4">
-                    <h3>How many square meters is your home?</h3>
-                    <ul class="options4">
-                        <li><label for="q4a1"><input type="radio" name="q4" value="1" id="q4a1">0 - 20</label></li>
-                        <li><label for="q4a2"><input type="radio" name="q4" value="2" id="q4a2">20 - 60</label></li>
-                        <li><label for="q4a3"><input type="radio" name="q4" value="3" id="q4a3">60 - 100</label></li>
-                        <li><label for="q4a4"><input type="radio" name="q4" value="4" id="q4a4">100 - 140</label></li>
-                    </ul>
+                <h3>How many square meters is your home?</h3>
+                <ul class="options4">
+                    <li onclick="q_add('q4a1', 1500); make_cookie(4,1)">0 - 20</li>
+                    <li onclick="q_add('q4a2', 6000); make_cookie(4,2)">20 - 60</li>
+                    <li onclick="q_add('q4a3', 12000); make_cookie(4,3)">60 - 100</li>
+                    <li onclick="q_add('q4a4', 18000); make_cookie(4,4)">100 - 140</li>
+                    <a onclick="prev(4)"><img src="img/feet_buttons/prev.png" class="prev" id="prev4"></img></a>
+                </ul>
                 </div>
+
                 <div class="Q5">
-                    <h3>How many hours a day do you spent on your desktop?</h3>
+                    <h3>How many hours a day do you spend on your desktop?</h3>
                     <ul class="options5">
-                        <li><label for="q5a1"><input type="radio" name="q5" value="1" id="q5a1">0 hours</label></li>
-                        <li><label for="q5a2"><input type="radio" name="q5" value="2" id="q5a2">1 hour</label></li>
-                        <li><label for="q5a3"><input type="radio" name="q5" value="3" id="q5a3">2 hours</label></li>
-                        <li><label for="q5a4"><input type="radio" name="q5" value="4" id="q5a4">3 hours</label></li>
-                        <li><label for="q5a5"><input type="radio" name="q5" value="5" id="q5a5">4 hours</label></li>
-                        <li><label for="q5a6"><input type="radio" name="q6" value="6" id="q5a6">5-10 hours</label></li>
+                        <li onclick="q_add('q5a1', 0); make_cookie(5, 1);">Detached</li>
+                        <li onclick="q_add('q5a2', 21.9); make_cookie(5, 2);">Semi-detached</li>
+                        <li onclick="q_add('q5a3', 43.8); make_cookie(5, 3);">Flat</li>
+                        <li onclick="q_add('q5a4', 65.7); make_cookie(5, 4);">Houseboat</li>
+                        <li onclick="q_add('q5a5', 87.6); make_cookie(5, 5);">Villa</li>
+                        <li onclick="q_add('q5a6', 164.25); make_cookie(5, 6);">Villa</li>
+            			<a onclick="prev(5)"><img src="img/feet_buttons/prev.png" class="prev" id="prev5"></img></a>
                     </ul>
                 </div>
                 <div class="Q6">
                     <h3>What is the energy label of your house?</h3>
                     <ul class="options6">
-                        <li><label for="q6a1"><input type="radio" name="q6" value="1" id="q6a1">A+, A++, A+++, A++++</label></li>
-                        <li><label for="q6a2"><input type="radio" name="q6" value="2" id="q6a2">A</label></li>
-                        <li><label for="q6a3"><input type="radio" name="q6" value="3" id="q6a3">B, C</label></li>
-                        <li><label for="q6a4"><input type="radio" name="q6" value="4" id="q6a4">D, E</label></li>
-                        <li><label for="q6a5"><input type="radio" name="q6" value="5" id="q6a5">F, G</label></li>
-                        <li><label for="q6a6"><input type="radio" name="q6" value="6" id="q6a6">I don't know</label></li>
+                        <li onclick="q_add('q6a1', 0); make_cookie(6, 1);">A+, A++, A+++, A++++</li>
+                        <li onclick="q_add('q6a2', 0); make_cookie(6, 2);">A</li>
+                        <li onclick="q_add('q6a3', 0); make_cookie(6, 3);">B, C</li>
+                        <li onclick="q_add('q6a4', 0); make_cookie(6, 4);">D, E</li>
+                        <li onclick="q_add('q6a5', 0); make_cookie(6, 5);">F, G</li>
+                        <li onclick="q_add('q6a6', 0); make_cookie(6, 6);">I don't know</li>
+			            <a onclick="prev(6)"><img src="img/feet_buttons/prev.png" class="prev" id="prev6"></img></a>
                     </ul>
                 </div>
                 <div class="Q7">
                     <h3>What is your gas usage per year?</h3>
                     <ul class="options7">
-		            	<li><label for="q7a1"><input type="radio" name="q7" value="1" id="q7a1">up to 900 m3</label></li>
-                        <li><label for="q7a2"><input type="radio" name="q7" value="2" id="q7a2">900 m3 - 1500 m3</label></li>
-                        <li><label for="q7a3"><input type="radio" name="q7" value="3" id="q7a3">1500 m3 - 2000 m3</label></li>
-                        <li><label for="q7a4"><input type="radio" name="q7" value="4" id="q7a4">More than 2000 m3</label></li>
-                        <li><label for="q7a5"><input type="radio" name="q7" value="5" id="q7a5">I don't know</label></li>
+		                <li onclick="q_add('q7a1', 0); make_cookie(7, 1);">up to 900 m3</li>
+                        <li onclick="q_add('q7a2', 0); make_cookie(7, 2);">900 m3 - 1500 m3</li>
+                        <li onclick="q_add('q7a3', 0); make_cookie(7, 3);">1500 m3 - 2000 m3</li>
+                        <li onclick="q_add('q7a4', 0); make_cookie(7, 4);">More than 2000 m3</li>
+                        <li onclick="q_add('q7a5', 0); make_cookie(7, 5);">I don't know</li>
+			            <a onclick="prev(7)"><img src="img/feet_buttons/prev.png" class="prev" id="prev7"></img></a>
                     </ul>
                 </div>
                 <div class="Q8">
                     <h3>What is your electricity usage per year?</h3>
                     <ul class="options8">
-			            <li><label for="q8a1"><input type="radio" name="q8" value="1" id="q8a1">Up to 2000 kWh</li>
-                        <li><label for="q8a2"><input type="radio" name="q8" value="2" id="q8a2">2000 kWh - 2500 kWh</li>
-                        <li><label for="q8a3"><input type="radio" name="q8" value="3" id="q8a3">2500 kWh - 3000 kWh</li>
-                        <li><label for="q8a4"><input type="radio" name="q8" value="4" id="q8a4">3000 kWh - 3500 kWh</li>
-                        <li><label for="q8a5"><input type="radio" name="q8" value="5" id="q8a5">3500 kWh - 4000 kWh</li>
-                        <li><label for="q8a6"><input type="radio" name="q8" value="6" id="q8a6">4000 kWh or more</li>
-                        <li><label for="q8a7"><input type="radio" name="q8" value="7" id="q8a7">I don't know</li>
+		                <li onclick="q_add('q8a1', 0); make_cookie(8, 1);">Up to 2000 kWh</li>
+                        <li onclick="q_add('q8a2', 0); make_cookie(8, 2);">2000 kWh - 2500 kWh</li>
+                        <li onclick="q_add('q8a3', 0); make_cookie(8, 3);">2500 kWh - 3000 kWh</li>
+                        <li onclick="q_add('q8a4', 0); make_cookie(8, 4);">3000 kWh - 3500 kWh</li>
+                        <li onclick="q_add('q8a5', 0); make_cookie(8, 5);">3500 kWh - 4000 kWh</li>
+                        <li onclick="q_add('q8a6', 0); make_cookie(8, 6);">4000 kWh or more</li>
+                        <li onclick="q_add('q8a7', 0); make_cookie(8, 7);">I don't know</li>
+			            <a onclick="prev(8)"><img src="img/feet_buttons/prev.png" class="prev" id="prev8"></img></a>
                     </ul>
                 </div>
                 <div class="Q9">
                     <h3>Do you seperate your trash?</h3>
                     <ul class="options9">
-			            <li><label for="q9a1"><input type="radio" name="q9" value="1" id="q9a1">Almost everything</li>
-                        <li><label for="q9a2"><input type="radio" name="q9" value="2" id="q9a2">Only organic waste</li>
-                        <li><label for="q9a3"><input type="radio" name="q9" value="3" id="q9a3">Only paper and plastic</li>
-                        <li><label for="q9a4"><input type="radio" name="q9" value="4" id="q9a4">Only glass</li>
-                        <li><label for="q9a5"><input type="radio" name="q9" value="5" id="q9a5">I don't sort my trash</li>
+			            <li onclick="q_add('q9a1', 0); make_cookie(9, 1);">Almost everything</li>
+                        <li onclick="q_add('q9a2', 0); make_cookie(9, 2);">Only organic waste</li>
+                        <li onclick="q_add('q9a3', 0); make_cookie(9, 3);">Only paper and plastic</li>
+                        <li onclick="q_add('q9a4', 0); make_cookie(9, 4);">Only glass</li>
+                        <li onclick="q_add('q9a5', 0); make_cookie(9, 5);">I don't sort my trash</li>
+			            <a onclick="prev(9)"><img src="img/feet_buttons/prev.png" class="prev" id="prev9"></img></a>
                     </ul>
                 </div>
-	</div>
-                <div class="last">
+
+		</div>
+                <div class="last" id="last">
                     <h1>That's it</h1>
                     <p>Thank you for your time :)</p>
-                    <a class="quiz_button" href="result_test.php">Homepage</a>
-                    <input type="submit" name="submit" value="Submit">
-                </div>
-                <script src="form.js"></script>
-            </form>
-        <?php
-
-        } else if(isset($_POST['submit'])) {
-            $q1 = $_POST['q1'];
-            $q2 = $_POST['q2'];
-            $q3 = $_POST['q3'];
-            $q4 = $_POST['q4'];
-            $q5 = $_POST['q5'];
-            $q6 = $_POST['q6'];
-            $q7 = $_POST['q7'];
-            add_cookie('q1', $q1);
-            add_cookie('q2', $q2);
-            add_cookie('q3', $q3);
-            add_cookie('q4', $q4);
-            add_cookie('q5', $q5);
-            add_cookie('q6', $q6);
-            add_cookie('q7', $q7);
-
-
-            if($q1 == 1) {
-                $f1 = 0;
-            } else if($q1 == 2) {
-                $f1 = 350;
-            } else if($q1 == 3) {
-                $f1 = 1050;
-            } else if($q1 == 4) {
-                $f1 = 1750;
-            }
-
-            if($q2 == 1) {
-                $f2 = 0;
-            } else if($q2 == 2) {
-                $f2 = 213.75;
-            } else if($q2 == 3) {
-                $f2 = 356.25;
-            } else if($q2 == 4) {
-                $f2 = 498.75;
-            }
-
-            if($q3 == 1) {
-                $f3 = 1882.1;
-            } else if($q3 == 2) {
-                $f3 = 811.25;
-            } else if($q3 == 3) {
-                $f3 = 1135.75;
-            } else if($q3 == 4) {
-                $f3 = 1460.25;
-            } else if($q3 == 5) {
-                $f3 = 1784.75;
-            } else if($q3 == 6) {
-                $f3 = 2109.25;
-            } else if($q3 == 7) {
-                $f3 = 2433.75;
-            } else if($q3 == 8) {
-                $f3 = 2758.25;
-            }
-
-            if($q4 == 1) {
-                $f4 = 1500;
-            } else if($q4 == 2) {
-                $f4 = 6000;
-            } else if($q4 == 3) {
-                $f4 = 12000;
-            } else if($q4 == 4) {
-                $f4 = 18000;
-            }
-
-            if($q5 == 1) {
-                $f5 = 0;
-            } else if($q5 == 2) {
-                $f5 = 21.9;
-            } else if($q5 == 3) {
-                $f5 = 43.8;
-            } else if($q5 == 4) {
-                $f5 = 65.7;
-            } else if($q5 == 5) {
-                $f5 = 87.6;
-            } else if($q5 == 6) {
-                $f5 = 164.25;
-            }
-
-            echo "q1:" . $q1 . "\n";
-            echo "q2:" . $q2 . "\n";
-            echo "q3:" . $q3 . "\n";
-            echo "q4:" . $q4 . "\n";
-            echo "q5:" . $q5 . "\n";
-            echo "q6:" . $q6 . "\n";
-            echo "q7:" . $q7 . "\n";
-            }
-            ?>
-	<a class="quiz_button" href="result.php">Results</a>
-        <div id="next_and_previous">
-        <img src="img/feet_buttons/prev.png" id="prev"></img>
-        <img src="img/feet_buttons/next.png" id="next"></img>
+		    <p>Your result is:</p>
+                    <p id="result"></p>
+                    <!-- <div w3-include-html="result_tips.html"></div> -->
+                    <div class="result">
+    <p>Your footprint is:<br><?php echo $sum; ?> m3</p>
+    <br>
+    <p>The average footprint is:<br><?php echo $average; ?></p>
+    </div>
+	<div id="tips_q1">
+        <h3>How far do you drive in a year?</h3>
+        <div class="standard_text">
         </div>
+        <div class="ans_1" hidden>
+            testq1a1
+        </div>
+        <div class="ans_2" hidden>
+            testq1a2
+        </div>
+        <div class="ans_3" hidden>
+            testq1a3
+        </div>
+        <div class="ans_4" hidden>
+            testq1a4
+        </div>
+    </div>
+    <div id="tips_q2">
+        <h3>How much do you fly in a year?</h3>
+        <div class="standard_text">
+        </div>
+        <div class="ans_1" hidden>
+            testq2a1
+        </div>
+        <div class="ans_2" hidden>
+            testq2a2
+        </div>
+        <div class="ans_3" hidden>
+            testq2a3
+        </div>
+        <div class="ans_4" hidden>
+            testq2a4
+        </div>
+    </div>
+    <div id="tips_q3">
+        <h3>How much electricity do you use in a year?</h3>
+        <div class="standard_text">
+        </div>
+        <div class="ans_1" hidden>
+            testq3a1
+        </div>
+        <div class="ans_2" hidden>
+            testq3a2
+        </div>
+        <div class="ans_3" hidden>
+            testq3a3
+        </div>
+        <div class="ans_4" hidden>
+            testq3a4
+        </div>
+    </div>
+    <div id="tips_q4">
+        <h3>How many square meters is your home?</h3>
+        <div class="standard_text">
+        </div>
+        <div class="ans_1" hidden>
+            testq4a1
+        </div>
+        <div class="ans_2" hidden>
+            testq4a2
+        </div>
+        <div class="ans_3" hidden>
+            testq4a3
+        </div>
+        <div class="ans_4" hidden>
+            testq4a4
+        </div>
+    </div>
+    <div id="tips_q5">
+        <h3>How many hours a day do you spend on your desktop?</h3>
+        <div class="standard_text">
+        </div>
+        <div class="ans_1" hidden>
+            testq5a1
+        </div>
+        <div class="ans_2" hidden>
+            testq5a2
+        </div>
+        <div class="ans_3" hidden>
+            testq5a3
+        </div>
+        <div class="ans_4" hidden>
+            testq5a4
+        </div>
+    </div>
+    <div id="tips_q6">
+        <h3>What is the energy label of your house?</h3>
+        <div class="standard_text">
+        </div>
+        <div class="ans_1" hidden>
+            testq6a1
+        </div>
+        <div class="ans_2" hidden>
+            testq6a2
+        </div>
+        <div class="ans_3" hidden>
+            testq6a3
+        </div>
+        <div class="ans_4" hidden>
+            testq6a4
+        </div>
+    </div>
+    <div id="tips_q7">
+        <h3>What is your gas usage per year?</h3>
+        <div class="standard_text">
+        </div>
+        <div class="ans_1" hidden>
+            testq7a1
+        </div>
+        <div class="ans_2" hidden>
+            testq7a2
+        </div>
+        <div class="ans_3" hidden>
+            testq7a3
+        </div>
+        <div class="ans_4" hidden>
+            testq7a4
+        </div>
+    </div>
+    <div id="tips_q8">
+        <h3>What is your electricity usage per year?</h3>
+        <div class="standard_text">
+        </div>
+        <div class="ans_1" hidden>
+            testq8a1
+        </div>
+        <div class="ans_2" hidden>
+            testq8a2
+        </div>
+        <div class="ans_3" hidden>
+            testq8a3
+        </div>
+        <div class="ans_4" hidden>
+            testq8a4
+        </div>
+    </div>
+    <div id="tips_q9">
+        <h3>Do you seperate your trash?</h3>
+        <div class="standard_text">
+        </div>
+        <div class="ans_1" hidden>
+            testq9a1
+        </div>
+        <div class="ans_2" hidden>
+            testq9a2
+        </div>
+        <div class="ans_3" hidden>
+            testq9a3
+        </div>
+        <div class="ans_4" hidden>
+            testq9a4
+        </div>
+    </div>
+    </div>
+    <div id="tips_q9">
+        <h3>Do you seperate your trash?</h3>
+        <div class="standard_text">
+        </div>
+        <div class="ans_1" hidden>
+            testq9a1
+        </div>
+        <div class="ans_2" hidden>
+            testq9a2
+        </div>
+        <div class="ans_3" hidden>
+            testq9a3
+        </div>
+        <div class="ans_4" hidden>
+            testq9a4
+        </div>
+    </div>
+</div>
+                </div>
+		<h1 style="display: none;" id="result">RESULT</h1>
+	<!--a class="quiz_button" href="result.php">Results</a-->
     </div>
 </body>
 </html>
+
+<!-- <script>
+    includeHTML();
+</script> -->

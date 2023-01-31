@@ -9,6 +9,7 @@ body {
   background-image: url("achtergrond.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: top;
 }
 
 label{
@@ -24,25 +25,35 @@ background-color: transparent;
 
 /*BUTTONS*/
 
+
+
 .button {
     color: black;
     padding: 12px 44px;
     text-decoration: none;
-    display: inline-block;
+    /* display: inline-block; */
+    text-align: center;
     font-size: 18px;
-    border-radius: 25px;
-    border-top-right-radius: 0;
-    background-color: #8a9a5b;
+    border-radius: 15px;
+    /* border-top-right-radius: 0; */
+    /* background-color: #687e6c; */
+    background-color: #8da892;
     transition: 0.2s;
 }
 
 .button:hover {
-    background-color: #8a9a5bb0;
+    background-color: #9cb8a1;
 }
+
+.button:active {
+    transform: scale(0.98);
+}
+
 
 /*NAVIGATION BAR*/
 
 .header {
+
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
@@ -70,6 +81,7 @@ background-color: transparent;
 
 .navBut:hover {
     background-color: rgba(255, 255, 255, 0.692);
+    padding: 12px 20px;
 }
 
 .bar {
@@ -77,7 +89,8 @@ background-color: transparent;
     align-items: center;
     justify-content: space-between;
     display: flex;
-    background-color: #8a9a5b;
+    /* background-color: #325933; */
+    background-color: #325933;
 }
 
 .barItems {
@@ -100,12 +113,12 @@ background-color: transparent;
     font-weight: 500;
     font-size: 18px;
     border-radius: 25px;
-    padding: 12px 20px;
+    padding: 12px 44px;
     transition: 0.2s;
 }
 
 .pageLink:hover {
-    color: #8a9a5b;
+    color: #325933;
     background-color: white;
     border-radius: 25px;
     padding: 12px 20px;
@@ -142,6 +155,7 @@ background-color: transparent;
         border-radius: 8px;
         box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
         position: fixed;
+	z-index: 1;
     }
 
     .barItems.active {
@@ -164,7 +178,7 @@ background-color: transparent;
         font-size: 18px;
         border-radius: 25px;
         border-top-right-radius: 0;
-        background-color: #8a9a5b;
+        background-color: #325933;
         transition: 0.2s;
     }
 
@@ -214,6 +228,18 @@ background-color: transparent;
     .homeIMG {
         display: none;
     }
+
+    .container_pr {
+	max-width: 300px;
+	display: block;
+    }
+
+    .userinf {
+ 	display: block;
+	margin-top: 35vh;
+	margin-right: 30px;
+    }
+
 }
 
 /*HOMEPAGE*/
@@ -222,9 +248,11 @@ background-color: transparent;
     max-width: 650px;
     margin-top: 10%;
     float: left;
-    background-color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
     padding: 30px;
     border-radius: 30px;
+    text-align: center;
 }
 
 .content h1 {
@@ -234,11 +262,39 @@ background-color: transparent;
 }
 
 .content p {
-    color: white;
-    font-weight: 600;
+    color: black;
+    font-weight: 200;
     margin-bottom: 12px;
     font-size: 20px;
 }
+
+.butt_home {
+    display: flex;
+    justify-content: space-between;
+}
+.homeb {
+    width: 49%;
+    color: black;
+    padding: 12px 44px;
+    text-decoration: none;
+    /* display: inline-block; */
+    text-align: center;
+    font-size: 18px;
+    border-radius: 15px;
+    /* border-top-right-radius: 0; */
+    /* background-color: #687e6c; */
+    background-color: #8da892;
+    transition: 0.2s;
+}
+
+.homeb:hover {
+    background-color: #9cb8a1;
+}
+
+.homeb:active {
+    transform: scale(0.98);
+}
+
 
 .homeIMG {
     margin-top: 92px;
@@ -249,7 +305,7 @@ background-color: transparent;
 
 /*ABOUT US PAGE*/
 
-\.about_us h1 {
+.about_us h1 {
     margin-top: 4%;
     color: black;
     font-size: 60px;
@@ -264,7 +320,7 @@ background-color: transparent;
     transition: 0.4s;
     float: left;
     padding: 50px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 .card:hover {
@@ -378,6 +434,8 @@ background-color: transparent;
     width: 90%;
 }
 
+
+
 /*RESULT PAGE*/
 
 :root{
@@ -402,10 +460,10 @@ background-color: transparent;
     border-radius: 5px;
 }
 
-/* .tips_q1 .tips_q2 .tips_q3 .tips_q4 .tips_q5 .tips_q6 .tips_q7 .tips_q8 .tips_q9
+.tips_q1 .tips_q2 .tips_q3 .tips_q4 .tips_q5 .tips_q6 .tips_q7 .tips_q8 .tips_q9
 {
-    /* display: none; */
-/* } */
+    display: none;
+}
 
 .result_text{
     /* color: black; */
@@ -509,7 +567,8 @@ img.avatar {
     width: 700px;
     padding: 50px;
     background: rgba(255, 255, 255, 0.8);
-    background: #8a9a5b;
+    backdrop-filter: blur(5px);
+  /* background: #8a9a5b; */
     min-height: 60vh;
     margin-top: 4%;
     border-radius: 18px;
@@ -594,6 +653,20 @@ img.avatar {
   opacity: 0.7;
 }
 
+#prev2 {
+  width: 20%;
+  cursor:pointer;
+}
+#prev2:hover {
+  opacity: 0.7;
+}
+.prev{
+    width: 20%;
+    cursor: pointer;
+}
+.prev:hover{
+    opacity: 0.7;
+}
 
 .product-div img {
     max-width: 100%;
@@ -746,14 +819,19 @@ img.avatar {
 
 .change_pw_submit, .signup_submit, .login_button, .profile_buttons, .lead_but {
   background-color: white;
-  padding: 12px;
+  padding: 12px 24px;
   margin-bottom: 4px;
-  border-radius: 18px;
   margin-top: 2px;
+  color: black;
+  font-size: 18px;
+  border-radius: 25px;
+  border-top-right-radius: 0;
+  transition: 0.2s;
+  border: none;
 }
 
 .profile_buttons:hover, .signup_submit:hover, .change_pw_submit:hover, .login_button:hover, .lead_but:hover {
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 /* QUIZ SELECTIE */
