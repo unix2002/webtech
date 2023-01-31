@@ -17,6 +17,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
     <link rel="stylesheet" href="style.css">
+
+    <script src="./result.js"></script>
 </head>
 
 <body>
@@ -36,7 +38,7 @@
             <br>
             <p>The average footprint is:<br><?php echo $average; ?></p>
             </div>
-            <div class="tips_q1">
+            <div id="tips_q1">
                 <div class="standard_text">
                 </div>
                 <div class="ans_1">
@@ -52,7 +54,7 @@
                     test
                 </div>
             </div>
-            <div class="tips_q2">
+            <div id="tips_q2">
                 <div class="standard_text">
                 </div>
                 <div class="ans_1">
@@ -68,7 +70,7 @@
                     test
                 </div>
             </div>
-            <div class="tips_q3">
+            <div id="tips_q3">
                 <div class="standard_text">
                 </div>
                 <div class="ans_1">
@@ -84,7 +86,7 @@
                     test
                 </div>
             </div>
-            <div class="tips_q4">
+            <div id="tips_q4">
                 <div class="standard_text">
                 </div>
                 <div class="ans_1">
@@ -100,7 +102,7 @@
                     test
                 </div>
             </div>
-            <div class="tips_q5">
+            <div id="tips_q5">
                 <div class="standard_text">
                 </div>
                 <div class="ans_1">
@@ -116,7 +118,7 @@
                     test
                 </div>
             </div>
-            <div class="tips_q6">
+            <div id="tips_q6">
                 <div class="standard_text">
                 </div>
                 <div class="ans_1">
@@ -132,7 +134,7 @@
                     test
                 </div>
             </div>
-            <div class="tips_q7">
+            <div id="tips_q7">
                 <div class="standard_text">
                 </div>
                 <div class="ans_1">
@@ -148,7 +150,7 @@
                     test
                 </div>
             </div>
-            <div class="tips_q8">
+            <div id="tips_q8">
                 <div class="standard_text">
                 </div>
                 <div class="ans_1">
@@ -164,7 +166,7 @@
                     test
                 </div>
             </div>
-            <div class="tips_q9">
+            <div id="tips_q9">
                 <div class="standard_text">
                 </div>
                 <div class="ans_1">

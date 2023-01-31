@@ -402,10 +402,10 @@ background-color: transparent;
     border-radius: 5px;
 }
 
-.tips_q1 .tips_q2 .tips_q3 .tips_q4 .tips_q5 .tips_q6 .tips_q7 .tips_q8 .tips_q9
+/* .tips_q1 .tips_q2 .tips_q3 .tips_q4 .tips_q5 .tips_q6 .tips_q7 .tips_q8 .tips_q9
 {
-    display: none;
-}
+    /* display: none; */
+/* } */
 
 .result_text{
     /* color: black; */

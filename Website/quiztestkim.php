@@ -4,8 +4,10 @@
 	function add_cookie($question, $val)
 	{
         $new_val = $val;
-        setcookie($question, $val);
+        setcookie($question, $val, time() + 3600);
     }
+
+    $current_question
 ?>
 
 <html lang="en">
@@ -15,12 +17,87 @@
     <meta charset="UTF-8">
 
     <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        var currentQuestion = 1;
+        function previous_question(current_question)
+        {
+            // alert(current_question);
+            var previous_q = `options${current_question - 1}`;
+            var class_name = `options${current_question}`;
+
+            var current_q = document.querySelector(`.Q${current_question}`);
+            var prev_q = document.querySelector(`.Q${current_question - 1}`);
+
+            prev_q.style.display = "block";
+            current_q.style.display = "none";
+        }
+        function next_question(current_question)
+        {
+            var next_q = `options${current_question + 1}`;
+            var class_name = `options${current_question}`;
+
+            var current_q = document.querySelector(`.Q${current_question}`);
+            var next_q = document.querySelector(`.Q${current_question + 1}`);
+
+            next_q.style.display = "block";
+            current_q.style.display = "none";
+        }
+
+        $(document).ready(function() {
+	    $("input[type='radio'").click(function(){
+		    currentQuestion++;
+            event.preventDefault(); // prevent the form from submitting
+        				$.ajax({
+            					type: "POST", // use the POST method
+            					url: "./api/api_request.php", // the URL of the PHP script
+            					data: $("#form").serialize(), // the form data
+                    success: function(data) {
+                        // alert("next question + " + currentQuestion);
+                        // next_question(currentQuestion + 1);
+		            }
+        	    });
+            });
+
+        $("#next").click(function(){
+        currentQuestion++;
+        event.preventDefault(); // prevent the form from submitting
+                    $.ajax({
+                            type: "POST", // use the POST method
+                            url: "./api/api_request.php", // the URL of the PHP script
+                            data: $("#form").serialize(), // the form data
+                success: function(data) {
+                    // alert("next question + " + currentQuestion);
+                    next_question(currentQuestion + 1);
+                }
+            });
+        });
+
+	    $("#prev").click(function(event){
+		if(currentQuestion > 1) {
+			currentQuestion--;
+			event.preventDefault(); // prevent the form from submitting
+        				$.ajax({
+            					type: "POST", // use the POST method
+            					url: "./api/api_request.php", // the URL of the PHP script
+            					data: $("#form").serialize(), // the form data
+                    success: function(data) {
+			            // $("#result").html(search_data);
+			            // toon(search_data);
+                        previous_question(currentQuestion);
+		            }
+        	    });
+		}
+	    });
+	});
+    </script>
 </head>
 
 <body>
     <div class="container">
         <?php
-        include_once 'header_nieuw.php';
+            include_once 'header_nieuw.php';
         ?>
         <div class="content">
         </div>
@@ -33,7 +110,7 @@
                 https://footprint.wwf.org.uk/#/
                 https://www.footprintcalculator.org/home/en
             -->
-            <form action="quiz.php" method="post" id="form">
+            <form action="quiztestkim.php" method="post" id="form">
                 <div class="Q1">
                     <h3>How many km do you drive in a year?</h3>
                     <ul class="options1">
@@ -134,10 +211,10 @@
                 <div class="last">
                     <h1>That's it</h1>
                     <p>Thank you for your time :)</p>
-                    <a class="quiz_button" href="result.php">Homepage</a>
+                    <a class="quiz_button" href="result_test.php">Homepage</a>
                     <input type="submit" name="submit" value="Submit">
                 </div>
-                <script src="form_test.js"></script>
+                <script src="form.js"></script>
             </form>
         <?php
 
@@ -230,6 +307,10 @@
             }
             ?>
 	<a class="quiz_button" href="result.php">Results</a>
+        <div id="next_and_previous">
+        <img src="img/feet_buttons/prev.png" id="prev"></img>
+        <img src="img/feet_buttons/next.png" id="next"></img>
+        </div>
     </div>
 </body>
 </html>

@@ -17,14 +17,22 @@ function get_cookie(cookie_name)
     return current_val;
 }
 
+alert("result.js");
+
 var num_of_questions = 9;
-let i = 1;
+var i = 1;
 while(i != num_of_questions + 1)
 {
-    var cookie_name = `q$i`;
-    var id = `tips_q$i`;
+    var cookie_name = `q${i}`;
+    var id = `tips_q${i}`;
 
-    var answer = document.getElementsByClassName(id).children;
-    answer.item[(get_cookie(cookie_name))].style.display = "block";
-    i = i + 1;
+    var div = document.getElementById(id);
+    let children = div.children;
+    for (let j = 0; j < children.length; j++)
+    {
+        children[i].style.display = "none"
+    }
+    children[get_cookie(cookie_name)].style.display = "block"
+    // answer.item[(get_cookie(cookie_name))].style.display = "block";
+    i++;
 }
