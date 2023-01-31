@@ -18,7 +18,7 @@
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
     <link rel="stylesheet" href="style.css">
 
-    <script src="./result.js"></script>
+    <script src="result.js"></script>
 </head>
 
 <body>

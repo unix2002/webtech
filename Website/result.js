@@ -17,7 +17,7 @@ function get_cookie(cookie_name)
     return current_val;
 }
 
-alert("result.js");
+// alert("result.js");
 
 var num_of_questions = 9;
 var i = 1;

@@ -46,7 +46,7 @@
         }
 
         $(document).ready(function() {
-	    $("input[type='radio'").click(function(){
+	    $("input[type='radio']:checked".val()).click(function(){
 		    currentQuestion++;
             event.preventDefault(); // prevent the form from submitting
         				$.ajax({
@@ -56,6 +56,7 @@
                     success: function(data) {
                         // alert("next question + " + currentQuestion);
                         // next_question(currentQuestion + 1);
+                        // document.cookie = `q${currentQuestion}` + total + "; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/; sameSite=none; secure; ";
 		            }
         	    });
             });
@@ -104,6 +105,36 @@
         <?php
         if(!isset($_POST["submit"])) {
         ?>
+
+<script>
+		var TOTAL_CO2 = null;
+		function q_add(id, c) {
+			TOTAL_CO2 += c;
+			// 7 komt overeen met het aantal vragen.
+			if (id.charAt(1) == "9") {
+				calc_done();
+			}
+		}
+
+		function calc_done() {
+			// Verwerken resultaat.
+			url = window.location.href;
+			const params = new URLSearchParams(url.split("?")[1]);
+			const total_selection = parseFloat(params.get("total"));
+			TOTAL = total_selection + TOTAL_CO2;
+			alert("total: " + TOTAL);
+		}
+
+		function prev() {
+			alert("prev");
+		}
+		function make_cookie(currentQuestion, value)
+        {
+            document.cookie = `q${currentQuestion}` + value + "; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/; sameSite=none; secure; ";
+        }
+        make_cookie(1, 1);
+	</script>
+
         <div class="form">
             <!--
                 Source:
